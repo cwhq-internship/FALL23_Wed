@@ -11,7 +11,7 @@ from seed import create_data
 app = create_app()
 
 # Update the secret key if deploying to production
-app.secret_key = 'Bruce Wayne is Batman'
+app.secret_key = 'Bruce Wayne is Batman or is he'
 
 # Register Blueprints here
 app.register_blueprint(errors_bp)
@@ -91,4 +91,3 @@ if __name__ == "__main__":
 # Aditya was here
 # Saketh was also here!
 # Daniel was here :)
-# Seojin was here
