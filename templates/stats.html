@@ -1,0 +1,45 @@
+{% extends "layout.html" %} {% set page_title="Statistics" %}
+
+{% block styles %}
+    <link href='{{url_for("static", filename="stylesheets/stats.css")}}' rel='stylesheet'/>
+{% endblock %}
+
+{% block content %}
+<h1>Statistics</h1>
+<div>
+    <div>
+        <div>
+            <h2>387</h2>
+            <p>tests generated</p>
+        </div>
+        <div>
+            <h2>3690</h2>
+            <p>words typed correctly</p>
+        </div>
+        <div>
+            <h2>34</h2>
+            <p>words per minute</p>
+        </div>
+        <div>
+            <h2>94%</h2>
+            <p>average completion</p>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <img>
+            <p>Word Difficulty</p>
+        </div>
+        <div>
+            <img>
+            <p>Use of Passes</p>
+        </div>
+        <div>
+            <img>
+            <p>Ran out of time</p>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

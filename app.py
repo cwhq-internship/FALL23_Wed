@@ -11,7 +11,7 @@ from seed import create_data
 app = create_app()
 
 # Update the secret key if deploying to production
-app.secret_key = 'Bruce Wayne is Batman or is he'
+app.secret_key = 'Bruce Wayne is Batman or is he??'
 
 # Register Blueprints here
 app.register_blueprint(errors_bp)
