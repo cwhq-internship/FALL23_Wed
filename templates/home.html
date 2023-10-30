@@ -7,8 +7,31 @@
 {% block content %}
 <!-- Update this block to update what html content is rendered -->
 <div>
-  <h1>Hello Flask</h1>
+  <h1 id="title">Hello Flask</h1>
+  <button id="dMode" onclick="dModeToggle()">Dark Mode Toggle</button>
+  <button id="lMode" onclick="lModeToggle()">Light Mode Toggle</button>
+
+  <script>
+  
+    function dModeToggle() {
+      document.body.style.background = "#232D3F";
+
+      const element = document.querySelector("#title");
+      element.style.color = "#008170";
+    }
+
+    function lModeToggle() {
+      document.body.style.background = "#F9F3CC";
+      
+      const element = document.querySelector("#title");
+      element.style.color = "#8EACCD";
+    }
+  </script>
 </div>
+
+
+
+
 {% endblock %}
 
 {% block scripts %}
