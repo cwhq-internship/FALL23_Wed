@@ -5,6 +5,28 @@
  .footer{
   position:fixed;
   width:100%;
-  color: black;
-  bottom:10px;
+  background-color: #333333;
+  bottom:0px;
+  left: 0px;
+  color:white;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+ }
+ #footer-text{
+  font-family: Raleway;
+  width:500px;
+  text-align: center;
+ }
+ #footer-button{
+  font-family: Lato;
+  font-weight: 700;
+  color:white;
+  background-color: black;
+  padding:15px;
+  border-radius: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
  }
