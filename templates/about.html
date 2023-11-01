@@ -2,35 +2,49 @@
 
 {% block styles %}
     <link href='{{url_for("static", filename="stylesheets/about.css")}}' rel='stylesheet'/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
 {% endblock %}
 
 {% block content %}
-<h1>About us</h1>
-<p>
+<h1 class="text-lg-center">About us</h1>
+<p class="text-center mx-15">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
     Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. 
     Massa enim nec dui nunc mattis.
 </p>
 
-<p>
+<p class="text-center mx-15">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
     Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. 
     Massa enim nec dui nunc mattis.
 </p>
 
-<p>
+<p class="text-center mx-15">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
     Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. 
     Massa enim nec dui nunc mattis.
 </p>
 
-<p>
+<p class="text-center mx-15">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
     Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. 
     Massa enim nec dui nunc mattis.
 </p>
+{% endblock %}
+
+{% block scripts %}
+<script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
 {% endblock %}
