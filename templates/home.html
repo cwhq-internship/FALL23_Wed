@@ -8,14 +8,14 @@
 <!-- Update this block to update what html content is rendered -->
 <div>
   <h1 id="title">Hello Flask</h1>
-  <button id="dMode" onclick="dModeToggle()">Dark Mode Toggle</button>
+  <button id="dMode" onclick="dModeToggle()">Click for Dark Mode</button>
 
   <script>
   
     function dModeToggle() {
-      let currentColor = document.body.style.backgroundColor;
+      let btnText = document.querySelector("#dMode").textContent;
 
-      if(currentColor === "rgb(249, 243, 204)") {
+      if(btnText === "Click for Dark Mode") {
         document.body.style.backgroundColor = "#232D3F";
 
         const element = document.querySelector("#title");
