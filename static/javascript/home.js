@@ -4,7 +4,7 @@ console.log('Jquery Version:', jQuery.fn.jquery);
 function dModeToggle() {
     let btnText = document.querySelector("#dMode").textContent;
 
-    if(btnText === "Click for Dark Mode") {
+    if(btnText == "Click for Dark Mode") {
       document.body.style.backgroundColor = "#232D3F";
 
       const element = document.querySelector("#title");
