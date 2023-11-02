@@ -4,3 +4,9 @@
 body {
     background-color: #F9F3CC;
 }
+
+.blue-container{
+    background-color: powderblue;
+    height: 200px;
+    width: 100%;
+}
