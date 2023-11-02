@@ -19,8 +19,18 @@ app.register_blueprint(api_bp, url_prefix="/api")
 
 
 @app.route('/')
-def index():
+def home():
     return render_template('home.html')
+
+@app.route('/stats')
+def stats():
+    return render_template('stats.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 
 
 # Custom CLI Commands
