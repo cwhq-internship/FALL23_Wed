@@ -34,3 +34,23 @@
   margin-top: 20px;
   margin-bottom: 20px;
  }
+ #title {
+  color: #8EACCD;
+}
+body {
+  background-color: #F9F3CC;
+}
+
+.blue-container{
+  background-color: powderblue;
+  height: 200px;
+  width: 100%;
+}
+.big {
+  font-size: 200;
+  text-align: center;
+}
+.medium {
+  font-size: 45;
+  text-align: center;
+}
