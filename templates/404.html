@@ -1,8 +1,16 @@
 {% extends "layout.html" %}
 {% set title="404" %}
 
+{% block styles %}
+<link href='{{url_for("static", filename="stylesheets/layout.css")}}' rel='stylesheet'/>
+{% endblock %}
+
 {% block content %}
-<h1>
-  Page Not Found
-</h1>
+<p class="big">
+  404
+<p>
+  <p class="medium">
+    U lost bruh?
+  <p>
+    <a href="/">Here</a>
 {% endblock %}
