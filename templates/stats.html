@@ -12,42 +12,41 @@
 
 {% block content %}
 <h1 class="m">Statistics</h1>
-<div>
-    <div class="position-relative">
-        <div class="start-0 ms-1">
-            <h2>387</h2>
-            <p>tests generated</p>
-        </div>
-        <div class="start-0 ms-1">
-            <h2>3690</h2>
-            <p>words typed correctly</p>
-        </div>
-        <div class="start-0 ms-1">
-            <h2>34</h2>
-            <p>words per minute</p>
-        </div>
-        <div class="start-0 ms-1">
-            <h2>94%</h2>
-            <p>average completion</p>
-        </div>
+<div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-5">
+    <div class="col">
+        <h2>387</h2>
+        <p>tests generated</p>
     </div>
-
-    <div>
-        <div>
-            <img>
-            <p>Word Difficulty</p>
-        </div>
-        <div>
-            <img>
-            <p>Use of Passes</p>
-        </div>
-        <div>
-            <img>
-            <p>Ran out of time</p>
-        </div>
+    <div class="col">
+        <h2>3690</h2>
+        <p>words typed correctly</p>
     </div>
-    
+    <div class="col">
+        <h2>34</h2>
+        <p>words per minute</p>
+    </div>
+    <div class="col">
+        <h2>94%</h2>
+        <p>average completion</p>
+    </div>
 </div>
+<hr size="4" width="80%" color="black">
+<div class="row g-7 row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col">
+        <h6>Word Difficulty</h6>
+        <img src="{{url_for('static', filename='images/placeholder.jpg')}}" class="img-fluid">
+    </div>
+    <div class="col">
+        <h6>Use of Passes</h6>
+        <img src="{{url_for('static', filename='images/placeholder.jpg')}}" class="img-fluid">
+    </div>
+    <div class="col">
+        <h6>Ran out of time</h6>
+        <img src="{{url_for('static', filename='images/placeholder.jpg')}}" class="img-fluid">
+    </div>
+</div>
+    
+
 {% endblock %}
 
 {% block scripts %}
