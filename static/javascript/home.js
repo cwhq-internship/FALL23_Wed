@@ -21,3 +21,10 @@ function dModeToggle() {
       document.querySelector("#dMode").textContent = "Click for Dark Mode";
     }
   }
+
+  function mainGame(numberWords, time, difficulty, allowPassing){
+
+  }
+  function nextWord(difficulty){
+
+  }
