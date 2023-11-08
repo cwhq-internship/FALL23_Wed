@@ -1,5 +1,5 @@
 {% extends "layout.html" %} {% set page_title="About Us" %}
-
+{% set active_page = 'about' %}
 {% block styles %}
     <link href='{{url_for("static", filename="stylesheets/layout.css")}}' rel='stylesheet'/>
     <link
@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="container" style="margin-right: 5%; margin-left: 5%">
     <h1>About us</h1>
     <img src="{{url_for('static', filename='images/typing.png')}}" class="img-fluid align-items-center">

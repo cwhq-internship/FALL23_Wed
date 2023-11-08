@@ -20,6 +20,8 @@
           Wizard Type
           {% endif %}
         </title>
+        <!-- active page stuff -->
+
         <!-- For adding any additional stylesheets to a template -->
         {% block styles %}
         {% endblock %}
@@ -36,16 +38,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-link active text" aria-current="page" href="{{url_for('home')}}">Home</a>
-                <a class="nav-link text" href="{{url_for('about')}}">About</a>
-                <a class="nav-link text" href="{{url_for('stats')}}">Statistics</a>
+                <a class="nav-link text {{'active' if active_page == 'home' }}" aria-current="page" href="{{url_for('home')}}">Home</a>
+                <a class="nav-link text {{'active' if active_page == 'about' }}" href="{{url_for('about')}}">About</a>
+                <a class="nav-link text {{'active' if active_page == 'stats' }}" href="{{url_for('stats')}}">Statistics</a>
                 <button id="dMode" onclick="dModeToggle()">Click for Dark Mode</button>
               </div>
             </div>
           </div>  
         </nav>
       </div>
-
+      
       {% block content %}
       {% endblock %}
       
