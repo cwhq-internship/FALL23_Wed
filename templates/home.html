@@ -9,33 +9,36 @@
 <!-- Update this block to update what html content is rendered -->
 <div class="main">
     <div class="maininput">
-        <form action="{{url_for('game')}}" class="start_game">
-            <input type="select" name="wordNumber" required>
-            <label for="wordNumber">Number of words</label><br>
+        <form action="{{url_for('game')}}" class="start_game game_class">
+            <h1>Create test</h1>
+            <p>Number of words:</p>
+            <input type="number" name="wordNumber" required><br><br>
 
-            <input type="text" name="time" required>
-            <label for="time">Time allowed</label><br>
+            <p>Max amount of time:</p>
+            <input type="number" name="time" required><br><br>
             
+            <h4>Difficulty level:</h4>
             <input type="radio" name="difficulty" id="easyDiff" checked required>
-            <label for="easyDiff">Easy</label><br>
+            <label for="easyDiff">Easy (3-6 letter words)</label><br>
             
             <input type="radio" name="difficulty" id="mediumDiff" required>
-            <label for="mediumDiff">Medium</label><br>
+            <label for="mediumDiff">Medium (3-9 letter words)</label><br>
             
             <input type="radio" name="difficulty" id="hardDiff" required>
-            <label for="hardDiff">Hard</label><br>
+            <label for="hardDiff">Hard (Any word length)</label><br><br>
             
             <input type="checkbox" name="togglePassing">
-            <label for="togglePassing">Allow passing to the next word</label><br>
+            <label for="togglePassing">Allow passing to the next word</label><br><br>
             
-            <input type="submit">
-            <label for="wordNumber">Submit</label><br>
+            <input type="submit"><br>
         </form>
         <!--idea for current typing system:
-        get a word from a random list.
-        when person types a letter, it fills in the word
-        it then checks if the word is equal to the set word
-        if so, then complete and move to next word
+        get a word from a random list. that's setWord.
+        every time the user types a letter, it fills in the word they're typing (updates wordTyped variable)
+        if wordTyped==setWord, then complete and move to next word (run like nextWord() or something). This is our new setWord.
+        Repeat until number of words complete is the number we want.
+        or something like that
+            --Daniel B.
         -->
     </div>
 </div>
