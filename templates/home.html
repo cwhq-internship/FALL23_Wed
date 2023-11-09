@@ -1,14 +1,47 @@
 {% extends 'layout.html' %}
-
+{% set active_page = 'home' %}
 {% block styles %}
+
     <link href='{{url_for("static", filename="stylesheets/layout.css")}}' rel='stylesheet'/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 {% endblock %}
 
 {% block content %}
 <!-- Update this block to update what html content is rendered -->
-<div>
-  
+<div class="main">
+    <div class="maininput">
+        <form action="{{url_for('game')}}" class="start_game game_class">
+            <h1>Create test</h1>
+            <p>Number of words:</p>
+            <input type="number" name="wordNumber" required><br><br>
+
+            <p>Max amount of time:</p>
+            <input type="number" name="time" required><br><br>
+            
+            <h4>Difficulty level:</h4>
+            <input type="radio" name="difficulty" id="easyDiff" checked required>
+            <label for="easyDiff">Easy (3-6 letter words)</label><br>
+            
+            <input type="radio" name="difficulty" id="mediumDiff" required>
+            <label for="mediumDiff">Medium (3-9 letter words)</label><br>
+            
+            <input type="radio" name="difficulty" id="hardDiff" required>
+            <label for="hardDiff">Hard (Any word length)</label><br><br>
+            
+            <input type="checkbox" name="togglePassing">
+            <label for="togglePassing">Allow passing to the next word</label><br><br>
+            
+            <input type="submit"><br>
+        </form>
+        <!--idea for current typing system:
+        get a word from a random list. that's setWord.
+        every time the user types a letter, it fills in the word they're typing (updates wordTyped variable)
+        if wordTyped==setWord, then complete and move to next word (run like nextWord() or something). This is our new setWord.
+        Repeat until number of words complete is the number we want.
+        or something like that
+            --Daniel B.
+        -->
+    </div>
 </div>
 {% endblock %}
 

@@ -30,6 +30,10 @@ def stats():
 def about():
     return render_template('about.html')
 
+@app.route('/game')
+def game():
+    return render_template('game.html')
+
 
 
 

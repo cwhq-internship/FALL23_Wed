@@ -37,7 +37,7 @@
  #title {
   color: #8EACCD;
 }
-body {
+body{
   background-color: #F9F3CC;
 }
 
@@ -53,4 +53,20 @@ body {
 .medium {
   font-size: 45;
   text-align: center;
+}
+.maininput{
+  text-align: center;
+  border: #6C757D 3px dashed;
+  width: 30%;
+  padding: 20px;
+  padding-left: 50px;
+}
+.game_class{
+  text-align: left;
+}
+.main{
+  padding-bottom: 100px;
+}
+.active {
+  background-color: #30d0d9;
 }
