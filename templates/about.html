@@ -12,9 +12,12 @@
 
 {% block content %}
 
-<div class="container" style="margin-right: 5%; margin-left: 5%">
-    <h1>About us</h1>
-    <img src="{{url_for('static', filename='images/typing.png')}}" class="img-fluid align-items-center">
+<div class="float-container" style="margin-right: 5%; margin-left: 5%">
+    <div class="about-content">
+        <h1 style="margin-top: 50px; text-align: center; font-weight: bold;">About us</h1>
+        <img src="{{url_for('static', filename='images/typing.png')}}" class="img-fluid align-items-center">
+    </div>
+    <div class="about-content">
     <p>
         CodeWizardsHQ gives students the necessary skills to build platforms like this one. Over the course of several years of study in live, online coding classes,
         students acquired the necessary skills to develop and deploy a full-stack web application that helps users solve real-world problems.
@@ -41,6 +44,7 @@
         this engaging and interactive platform into their learning, students are inspired to develop strong typing skills that will benefit them in various aspects
         of their lives.
     </p>
+    </div>
 </div>
 {% endblock %}
 

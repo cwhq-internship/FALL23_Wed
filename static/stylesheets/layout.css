@@ -41,10 +41,16 @@ body{
   background-color: #F9F3CC;
 }
 
+.navbar-custom{
+  background-color: powderblue;
+  font-family: 'Space Mono', monospace;
+}
+
 .blue-container{
   background-color: powderblue;
-  height: 200px;
+  height: 430px;
   width: 100%;
+  font-family: 'Space Mono', monospace;
 }
 .big {
   font-size: 200;
@@ -69,4 +75,15 @@ body{
 }
 .active {
   background-color: #30d0d9;
+}
+
+.float-container{
+  padding: 20px;
+  font-family: 'Space Mono', monospace;
+}
+
+.about-content{
+  width: 50%;
+  float: left;
+  padding: 20px;
 }

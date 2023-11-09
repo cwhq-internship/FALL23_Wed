@@ -13,6 +13,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
         <title>
           {% if title %}
             {{ title }}
@@ -29,10 +32,9 @@
     <body>
 
         <!-- Displays the main content of a template -->
-        <div class="blue-container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" >
+        <nav class="navbar navbar-custom navbar-expand-lg bg-body-tertiary" >
           <div class="container-fluid">
-            <a class="navbar-brand" href="/">Wizard Type</a>
+            <a class="navbar-brand font-weight-bold" href="/">Wizard Type</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,12 +43,16 @@
                 <a class="nav-link text {{'active' if active_page == 'home' }}" aria-current="page" href="{{url_for('home')}}">Home</a>
                 <a class="nav-link text {{'active' if active_page == 'about' }}" href="{{url_for('about')}}">About</a>
                 <a class="nav-link text {{'active' if active_page == 'stats' }}" href="{{url_for('stats')}}">Statistics</a>
+
+
                 <button id="dMode" onclick="dModeToggle()">Click for Dark Mode</button>
+
+
               </div>
             </div>
           </div>  
         </nav>
-      </div>
+
       
       {% block content %}
       {% endblock %}

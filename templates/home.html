@@ -8,10 +8,22 @@
 
 {% block content %}
 <!-- Update this block to update what html content is rendered -->
+
+<div class="blue-container">
+    <div>
+        <img src="{{url_for('static', filename='images/typewriter.png')}}" class="rounded mx-auto d-block">
+    </div> 
+    <div>
+        <h1 class="text-center font-weight-bold">Wizard Type</h1>
+        <p class="text-center">Test your typing skills, built by CodeWizardsHQ students</p>
+    </div>
+</div>
+
+
 <div class="main">
     <div class="maininput">
         <form action="{{url_for('game')}}" class="start_game game_class">
-            <h1>Create test</h1>
+            <h1>Create Test</h1>
             <p>Number of words:</p>
             <input type="number" name="wordNumber" required><br><br>
 
