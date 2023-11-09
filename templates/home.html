@@ -22,13 +22,13 @@
 
 <div class="main">
     <div class="maininput">
-        <form action="{{url_for('game')}}" class="start_game game_class">
+        <form class="start_game game_class" onsubmit="return false">
             <h1>Create Test</h1>
             <p>Number of words:</p>
-            <input type="number" name="wordNumber" required><br><br>
+            <input type="number" name="wordNumber" id="wordNumber" required><br><br>
 
             <p>Max amount of time:</p>
-            <input type="number" name="time" required><br><br>
+            <input type="number" name="gameTime" id="gameTime" required><br><br>
             
             <h4>Difficulty level:</h4>
             <input type="radio" name="difficulty" id="easyDiff" checked required>
@@ -40,10 +40,10 @@
             <input type="radio" name="difficulty" id="hardDiff" required>
             <label for="hardDiff">Hard (Any word length)</label><br><br>
             
-            <input type="checkbox" name="togglePassing">
+            <input type="checkbox" name="togglePassing" id="togglePassing">
             <label for="togglePassing">Allow passing to the next word</label><br><br>
             
-            <input type="submit"><br>
+            <input type="submit" id="gameSubmitButton" onclick="inputFormValues()"><br>
         </form>
         <!--idea for current typing system:
         get a word from a random list. that's setWord.
@@ -60,4 +60,41 @@
 {% block scripts %}
 <!-- Delete the scripts block if not needed -->
     <script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
+    <script>
+
+    function inputFormValues(){
+        //sets variables to their form equivalents
+        var formWordNumber = $(document.querySelector("#wordNumber")).val() //number of words
+        var formGameTime = $(document.querySelector("#gameTime")).val() //total game time (in mins?)
+        var formTogglePassing = document.getElementById("togglePassing").checked; //allow passing word
+        var formDifficulty = 0; //0 is easy (default), 1 is medium, 2 is hard
+        
+        //extra variables to make the if-else statement easier to understand
+        var easyDifficulty = document.getElementById("easyDiff");
+        var mediumDifficulty = document.getElementById("mediumDiff");
+        var hardDifficulty = document.getElementById("hardDiff");
+        var wordDifficulty = "Easy"; //only used for the console log, will delete later
+
+        //sets difficulty to 0 if game is easy, 1 if medium, 2 if hard
+        if (mediumDifficulty.checked){
+            formDifficulty = 1;
+            wordDifficulty = "Medium";
+        }
+        else if (hardDifficulty.checked){
+            formDifficulty = 2;
+            wordDifficulty = "Hard";
+        }
+
+        //checks if all numbers inputted are a correct value, and if so, submits the form (sends a console log and alert)
+        if (formWordNumber < 1 || formGameTime < 1){
+            console.log("All numbers inputted must be at least 1.")
+            alert("All numbers inputted must be at least 1.")
+        }
+        else {
+            console.log("Number of words: " + formWordNumber + "\nMax amount of time: " + formGameTime + "\nDifficulty: " + formDifficulty + " (" + wordDifficulty + ")\nAllow passing: " + formTogglePassing)
+            alert("Number of words: " + formWordNumber + "\nMax amount of time: " + formGameTime + "\nDifficulty: " + formDifficulty + " (" + wordDifficulty + ")\nAllow passing: " + formTogglePassing)
+        }
+    }
+
+    </script>
 {% endblock %}
