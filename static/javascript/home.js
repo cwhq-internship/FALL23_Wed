@@ -37,3 +37,14 @@ function dModeToggle() {
     idk how to explain better
     -Daniel B. */
   }
+
+  function hideFooter(){
+    var footer = document.getElementById("footer");
+    if (document.getElementById("main-home")){var main_home = document.getElementById("main-home");}
+    if (document.getElementById("main-about")) {var main_about = document.getElementById("main-about");}
+    if (document.getElementById("main-stats")) {var main_stats = document.getElementById("main-stats");}
+    footer.style.display = "none";
+    if (main_home){main_home.style.marginBottom = "10px";}
+    if (main_about){main_about.style.marginBottom = "10px";}
+    if (main_stats){main_stats.style.marginBottom = "10px";}
+  }
