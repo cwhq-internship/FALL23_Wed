@@ -13,7 +13,7 @@ function dModeToggle() {
       document.querySelector("#dMode").textContent = "Click for Light Mode";
 
     } else {
-      document.body.style.backgroundColor = "#F9F3CC";
+      document.body.style.backgroundColor = "#FFFFFF";
     
       const element = document.querySelector(".text");
       element.style.color = "#8EACCD";

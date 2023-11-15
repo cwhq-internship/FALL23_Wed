@@ -1,5 +1,27 @@
-hello. you have submitted a game begin request. we have not added the game yet
+{% extends 'layout.html' %}
+{% set active_page = 'home' %}
+{% block styles %}
+    <link href='{{url_for("static", filename="stylesheets/layout.css")}}' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% endblock %}
+
+{% block content %}
+hello. you have submitted a game begin request. we have not added the game yet 
+<br><br>
+
+(Devs: Check console log.)
+
 <br><br>
 <a href="{{url_for('home')}}">
     <button>Back</button>
 </a>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
+
+<script>
+    console.log("Number of words: {{wordNumber}} \nAmount of time: {{gameTime}}\nDifficulty: {{difficulty}}\nAllow passing: {{togglePassing}}");
+</script>
+
+{% endblock %}
