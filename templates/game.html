@@ -17,9 +17,22 @@
     </div>
 </div>
 
-hello. you have submitted a game begin request. we have not added the game yet
+hello. you have submitted a game begin request. we have not added the game yet 
+<br><br>
+
+(Devs: Check console log.)
+
 <br><br>
 <a href="{{url_for('home')}}">
     <button>Back</button>
 </a>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
+
+<script>
+    console.log("Number of words: {{wordNumber}} \nAmount of time: {{gameTime}}\nDifficulty: {{difficulty}}\nAllow passing: {{togglePassing}}");
+</script>
+
 {% endblock %}
