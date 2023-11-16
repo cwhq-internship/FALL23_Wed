@@ -23,6 +23,7 @@ function dModeToggle() {
   }
 
   function mainGame(numberWords, time, difficulty, allowPassing){
+
     /* idea for current typing system:
         get a word from a random list. that's setWord.
         every time the user types a letter, it fills in the word they're typing (updates wordTyped variable)
@@ -30,6 +31,9 @@ function dModeToggle() {
         Repeat until number of words complete is the number we want.
         or something like that
             --Daniel B. */
+        
+        
+        
         
   }
   function nextWord(difficulty){
