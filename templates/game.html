@@ -7,19 +7,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="blue-container">
+<div class="maingame">
     <div>
-        <img src="{{url_for('static', filename='images/typewriter.png')}}" class="rounded mx-auto d-block">
-    </div>
-    <div>
-        <h1 class="text-center font-weight-bold">Wizard Type</h1>
-        <p class="text-center">Test your typing skills, built by CodeWizardsHQ students</p>
+        <h2>Current word:</h2>
+        <h1 id="currentWord">test</h1>
+        <input type="text" id="maininputbox">
     </div>
 </div>
-
-hello. you have submitted a game begin request. we have not added the game yet 
-<br><br>
-
+ <br>
 (Devs: Check console log.)
 
 <br><br>
@@ -33,6 +28,8 @@ hello. you have submitted a game begin request. we have not added the game yet
 
 <script>
     console.log("Number of words: {{wordNumber}} \nAmount of time: {{gameTime}}\nDifficulty: {{difficulty}}\nAllow passing: {{togglePassing}}");
+    document.getElementById("maininputbox").addEventListener("keyup", function (evt) {checkWord('{{difficulty}}');}, false);
+
 </script>
 
 {% endblock %}

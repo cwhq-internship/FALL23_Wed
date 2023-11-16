@@ -39,10 +39,36 @@ function dModeToggle() {
         
         
   }
+
+  function checkWord(difficulty){
+    currentWord = document.getElementById("currentWord").textContent;
+    typedWord = document.getElementById("maininputbox").value;
+    console.log(currentWord + "\n" + typedWord);
+    if (currentWord == typedWord){
+      alert("yay!")
+      document.getElementById("maininputbox").value = "";
+      nextWord(difficulty);
+    }
+  }
+
   function nextWord(difficulty){
     /* this would just involve selecting a new word from the list and then setting up the word it shows 
     idk how to explain better
     -Daniel B. */
+    console.log(difficulty);
+  }
+  
+  function randomWord(difficulty){
+    if (difficulty == 0){ //pull random word from easy list
+
+    } else if (difficulty == 1){ //pull word from medium list or easy list
+
+    } else if (difficulty == 2){ //pull word from any of the three lists
+
+    } else{
+      alert("Incorrect variable input, error")
+      window.location.href = "{{url_for('home')}}"
+    }
   }
 
   function hideFooter(){
