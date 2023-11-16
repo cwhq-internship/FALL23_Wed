@@ -30,7 +30,6 @@
         {% endblock %}
     </head>
     <body>
-
         <!-- Displays the main content of a template -->
         <nav class="navbar navbar-custom navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
@@ -65,7 +64,9 @@
         {% block scripts %}
         <script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
         {% endblock %}
-        <div class="footer">
+        <div id="footer">
+          <button id="footer-hide-button" onclick="hideFooter()">x</button>
+          <div id="inner-footer">
             <div id="footer-text">
               <p>CodeWizardsHQ provides the most fun and engaging online, live coding experience for kids and teens ages 8-18.</p>
             </div>
@@ -74,6 +75,8 @@
               <button id="footer-button">Start your coding journey today!</button>
               </a>
             </div>
+          </div>
         </div>
+        
     </body>
 </html>

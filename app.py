@@ -1,5 +1,5 @@
 from os import environ, getenv, scandir
-from flask import render_template
+from flask import Flask, render_template, redirect
 from db import create_app, db
 from blueprints.errors import errors_bp
 from blueprints.api import api_bp
@@ -31,8 +31,9 @@ def about():
     return render_template('about.html')
 
 @app.route('/game')
-def game():
-    return render_template('game.html')
+@app.route('/game/<wordNumber>/<gameTime>/<difficulty>/<togglePassing>')
+def game(wordNumber, gameTime, difficulty, togglePassing):
+    return render_template('game.html', wordNumber=wordNumber, gameTime=gameTime, difficulty=difficulty, togglePassing=togglePassing)
 
 
 

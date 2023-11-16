@@ -8,11 +8,41 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Difficulty');
+        data.addColumn('number', 'Amount');
+        data.addRows([
+          ['Easy', 12],
+          ['Medium', 17],
+          ['Hard', 40],
+        ]);
+
+        // Set chart options
+        var options = {'title':'Word Difficulty',
+                       'width':400,
+                       'height':300,
+                       'is3D':true};
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
 {% endblock %}
 
 {% block content %}
-
-<div class="container" style="margin-right: 5%; margin-left: 5%">
+</body>
+<div class="container" id="main-stats" style="margin-right: 5%; margin-left: 5%">
     <h1 style="margin-top:50px;" class="text">Statistics</h1>
     <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-5 text">
         <div class="col">
@@ -36,7 +66,7 @@
     <div class="row g-7 row-cols-1 row-cols-sm-2 row-cols-md-4 text">
         <div class="col">
             <h6>Word Difficulty</h6>
-            <img src="{{url_for('static', filename='images/placeholder.jpg')}}" class="img-fluid">
+            <div id="chart_div"></div>
         </div>
         <div class="col">
             <h6>Use of Passes</h6>
@@ -55,6 +85,6 @@
 <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
+      <script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
 {% endblock %}
