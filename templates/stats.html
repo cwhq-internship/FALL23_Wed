@@ -8,9 +8,42 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'How Much Pizza I Ate Last Night',
+                       'width':400,
+                       'height':300,
+                       'is3D':true};
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
 {% endblock %}
 
 {% block content %}
+</body>
 <div class="container" id="main-stats" style="margin-right: 5%; margin-left: 5%">
     <h1 style="margin-top:50px;">Statistics</h1>
     <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-5">
@@ -35,7 +68,7 @@
     <div class="row g-7 row-cols-1 row-cols-sm-2 row-cols-md-4">
         <div class="col">
             <h6>Word Difficulty</h6>
-            <img src="{{url_for('static', filename='images/placeholder.jpg')}}" class="img-fluid">
+            <div id="chart_div"></div>
         </div>
         <div class="col">
             <h6>Use of Passes</h6>
