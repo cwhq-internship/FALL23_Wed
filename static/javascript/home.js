@@ -2,23 +2,26 @@ console.log('Home.js Loaded');
 console.log('Jquery Version:', jQuery.fn.jquery);
 
 function dModeToggle() {
-    let btnText = document.querySelector("#dMode").textContent;
+    let btnText = document.querySelector("#darkModeText").textContent;
 
-    if(btnText == "Click for Dark Mode") {
+    if(btnText == "Dark Mode") {
       document.body.style.backgroundColor = "#232D3F";
 
-      const element = document.querySelector(".text");
-      element.style.color = "#008170";
+      const elements = document.getElementsByClassName("text");
+      for (const element of elements) {
+        element.style.color = "#FFFFFF";
+      }
 
-      document.querySelector("#dMode").textContent = "Click for Light Mode";
+      document.querySelector("#darkModeText").textContent = "Light Mode";
 
     } else {
-      document.body.style.backgroundColor = "#F9F3CC";
+      document.body.style.backgroundColor = "#FFFFFF";
     
-      const element = document.querySelector(".text");
-      element.style.color = "#8EACCD";
-
-      document.querySelector("#dMode").textContent = "Click for Dark Mode";
+      const elements = document.getElementsByClassName("text");
+      for (const element of elements) {
+      element.style.color = "#000000";
+      }
+      document.querySelector("#darkModeText").textContent = "Dark Mode";
     }
   }
 

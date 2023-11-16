@@ -23,25 +23,25 @@
 <div class="main">
     <div class="maininput">
         <form class="start_game game_class" onsubmit="return false">
-            <h1>Create Test</h1>
-            <p>Number of words:</p>
+            <h1 class="text">Create Test</h1>
+            <p class="text"> Number of words:</p>
             <input type="number" name="wordNumber" id="wordNumber" required><br><br>
 
-            <p>Max amount of time:</p>
+            <p class="text">Max amount of time:</p>
             <input type="number" name="gameTime" id="gameTime" required><br><br>
             
-            <h4>Difficulty level:</h4>
+            <h4 class="text">Difficulty level:</h4>
             <input type="radio" name="difficulty" id="easyDiff" checked required>
-            <label for="easyDiff">Easy (3-6 letter words)</label><br>
+            <label for="easyDiff" class="text">Easy (3-6 letter words)</label><br>
             
             <input type="radio" name="difficulty" id="mediumDiff" required>
-            <label for="mediumDiff">Medium (3-9 letter words)</label><br>
+            <label for="mediumDiff" class="text">Medium (3-9 letter words)</label><br>
             
             <input type="radio" name="difficulty" id="hardDiff" required>
-            <label for="hardDiff">Hard (Any word length)</label><br><br>
+            <label for="hardDiff" class="text"> Hard (Any word length)</label><br><br>
             
             <input type="checkbox" name="togglePassing" id="togglePassing">
-            <label for="togglePassing">Allow passing to the next word</label><br><br>
+            <label for="togglePassing" class="text">Allow passing to the next word</label><br><br>
             
             <input type="submit" id="gameSubmitButton" onclick="inputFormValues()"><br>
         </form>
@@ -55,6 +55,8 @@
         -->
     </div>
 </div>
+
+<div id="timer">Time: <span id="time-left"></span></div>
 {% endblock %}
 
 {% block scripts %}
@@ -77,6 +79,7 @@
 
         //sets difficulty to 0 if game is easy, 1 if medium, 2 if hard
         if (mediumDifficulty.checked){
+
             formDifficulty = 1;
             wordDifficulty = "Medium";
         }
@@ -93,8 +96,35 @@
         else {
             console.log("Number of words: " + formWordNumber + "\nMax amount of time: " + formGameTime + "\nDifficulty: " + formDifficulty + " (" + wordDifficulty + ")\nAllow passing: " + formTogglePassing)
             alert("Number of words: " + formWordNumber + "\nMax amount of time: " + formGameTime + "\nDifficulty: " + formDifficulty + " (" + wordDifficulty + ")\nAllow passing: " + formTogglePassing)
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                var userSelectedTime = formGameTime;
+                updateTimer(userSelectedTime);
+                var countdown = setInterval(function() {
+                    userSelectedTime--;
+    
+                    updateTimer(userSelectedTime);
+    
+                    if (userSelectedTime <=0) {
+                        clearInterval(countdown);
+                        alert('Game Over!');
+                    }
+    
+                }, 1000);
+    
+                function updateTimer(time) {
+                    var timerElement = document.getElementById('time-left');
+                    timerElement.textContent = time;
+                }
+            }
+            );
         }
+
+       
     }
+
+
+
 
     </script>
 {% endblock %}
