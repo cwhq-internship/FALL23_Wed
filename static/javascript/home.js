@@ -5,12 +5,15 @@ function dModeToggle() {
     let btnText = document.querySelector("#darkModeText").textContent;
 
     if(btnText == "Dark Mode") {
-      document.body.style.backgroundColor = "#232D3F";
+      document.body.style.backgroundColor = "#1e272f";
 
       const elements = document.getElementsByClassName("text");
       for (const element of elements) {
         element.style.color = "#FFFFFF";
       }
+      
+      document.getElementsByClassName("navbar-custom")[0].style.backgroundColor = "#2c3f50";
+      document.getElementsByClassName("blue-container")[0].style.backgroundColor = "#2c3f50";
 
       document.querySelector("#darkModeText").textContent = "Light Mode";
 
@@ -21,6 +24,9 @@ function dModeToggle() {
       for (const element of elements) {
       element.style.color = "#000000";
       }
+
+      document.getElementsByClassName("navbar-custom")[0].style.backgroundColor = "#cae3ec";
+      document.getElementsByClassName("blue-container")[0].style.backgroundColor = "#cae3ec";
       document.querySelector("#darkModeText").textContent = "Dark Mode";
     }
   }
