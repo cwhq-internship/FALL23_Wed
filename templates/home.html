@@ -62,6 +62,41 @@
     <script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
     <script>
 
+    function dModeToggle() {
+        let isDarkMode = document.getElementById("darkModeToggle").checked;
+        let darkModeText = document.getElementById("darkModeText");
+        
+        if (isDarkMode) {
+            // Dark Mode
+            document.body.style.backgroundColor = "#1e272f";
+        
+            const elements = document.getElementsByClassName("text");
+            for (const element of elements) {
+            element.style.color = "#FFFFFF";
+            }
+        
+            document.getElementsByClassName("navbar-custom")[0].style.backgroundColor = "#2c3f50";
+            // Add any additional elements you want to change in dark mode
+            document.getElementsByClassName("blue-container")[0].style.backgroundColor = "#2c3f50";
+        
+            darkModeText.textContent = "Light Mode";
+        } else {
+            // Light Mode
+            document.body.style.backgroundColor = "#FFFFFF";
+        
+            const elements = document.getElementsByClassName("text");
+            for (const element of elements) {
+            element.style.color = "#000000";
+            }
+        
+            document.getElementsByClassName("navbar-custom")[0].style.backgroundColor = "#cae3ec";
+            // Add any additional elements you want to change in light mode
+            document.getElementsByClassName("blue-container")[0].style.backgroundColor = "#cae3ec";
+        
+            darkModeText.textContent = "Dark Mode";
+        }
+        }
+
     function inputFormValues(){
         //sets variables to their form equivalents
         var formWordNumber = $(document.querySelector("#wordNumber")).val() //number of words

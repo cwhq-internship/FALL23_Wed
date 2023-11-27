@@ -101,17 +101,34 @@ body{
 .dark-mode-toggle {
   display: flex;
   align-items: center;
+  justify-content: flex-end; /* Align to the right */
+  padding-right: 20px; /* Optional: Add some padding for spacing */
 }
+
 
 /* Style for the slider */
 .slider {
+  /* Your slider styles */
   position: relative;
-  display: inline-block;
   width: 40px;
   height: 20px;
   background-color: #ccc;
   border-radius: 20px;
-  margin-right: 10px;
+}
+
+#darkModeToggle {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#darkModeToggle + .slider {
+  cursor: pointer;
+}
+
+#darkModeToggle:checked + .slider {
+  background-color: #2196F3; /* Adjust color for checked state */
 }
 
 /* Styling the slider's circle (thumb) */
