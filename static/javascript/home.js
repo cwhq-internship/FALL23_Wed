@@ -1,6 +1,65 @@
 console.log('Home.js Loaded');
 console.log('Jquery Version:', jQuery.fn.jquery);
 
+function dModeToggle() {
+  let isDarkMode = document.getElementById("darkModeToggle").checked;
+  let darkModeText = document.getElementById("darkModeText");
+
+  if (isDarkMode) {
+      // Dark Mode
+      document.body.style.backgroundColor = "#1e272f";
+
+      const elements = document.getElementsByClassName("text");
+      for (const element of elements) {
+          element.style.color = "#FFFFFF";
+      }
+
+      const navbar = document.getElementsByClassName("navbar-custom")[0];
+      if (navbar) {
+          navbar.style.backgroundColor = "#2c3f50";
+      }
+
+      const blueContainer = document.querySelector(".blue-container");
+      if (blueContainer) {
+          blueContainer.style.backgroundColor = "#2c3f50";
+      }
+
+      darkModeText.textContent = "Light Mode";
+      localStorage.setItem("darkMode", "true");
+  } else {
+      // Light Mode
+      document.body.style.backgroundColor = "#FFFFFF";
+
+      const elements = document.getElementsByClassName("text");
+      for (const element of elements) {
+          element.style.color = "#000000";
+      }
+
+      const navbar = document.getElementsByClassName("navbar-custom")[0];
+      if (navbar) {
+          navbar.style.backgroundColor = "#cae3ec";
+      }
+
+      const blueContainer = document.querySelector(".blue-container");
+      if (blueContainer) {
+          blueContainer.style.backgroundColor = "#cae3ec";
+      }
+
+      darkModeText.textContent = "Dark Mode";
+      localStorage.setItem("darkMode", "false");
+  }
+}
+
+window.onload = function () {
+  let storedDarkMode = localStorage.getItem("darkMode");
+
+  if (storedDarkMode === "true") {
+      // Apply Dark Mode styles
+      dModeToggle();
+  }
+};
+
+
 
 
   function mainGame(numberWords, time, difficulty, allowPassing){
