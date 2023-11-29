@@ -87,3 +87,25 @@ body{
   float: left;
   padding: 20px;
 }
+
+#footer-close-button {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding:5px;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 35px;
+}
+
+#footer-close-button:hover {
+  background-color: white;
+  color: black;
+}
