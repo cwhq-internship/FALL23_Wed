@@ -138,6 +138,7 @@ body{
 
 #darkModeToggle {
   position: absolute;
+  top:20px;
   opacity: 0;
   width: 0;
   height: 0;
@@ -183,4 +184,9 @@ body{
 #main-stats{
   margin-bottom: 200px;
 
+}
+
+#special-container{
+  max-width:50px;
+  height:auto;
 }

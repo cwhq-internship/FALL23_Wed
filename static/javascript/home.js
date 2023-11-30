@@ -1,13 +1,9 @@
 console.log('Home.js Loaded');
 console.log('Jquery Version:', jQuery.fn.jquery);
+if(localStorage.getItem("Dark") == 1) {
+  document.body.style.backgroundColor = "#232D3F";
+      localStorage.setItem("Dark", 1);
 
-function dModeToggle() {
-  let isDarkMode = document.getElementById("darkModeToggle").checked;
-  let darkModeText = document.getElementById("darkModeText");
-
-  if (isDarkMode) {
-      // Dark Mode
-      document.body.style.backgroundColor = "#1e272f";
 
       const elements = document.getElementsByClassName("text");
       for (const element of elements) {
@@ -25,10 +21,9 @@ function dModeToggle() {
       }
 
       darkModeText.textContent = "Light Mode";
-      localStorage.setItem("darkMode", "true");
-  } else {
-      // Light Mode
-      document.body.style.backgroundColor = "#FFFFFF";
+} else {
+  document.body.style.backgroundColor = "#FFFFFF";
+      localStorage.setItem("Dark", 0);
 
       const elements = document.getElementsByClassName("text");
       for (const element of elements) {
@@ -46,7 +41,52 @@ function dModeToggle() {
       }
 
       darkModeText.textContent = "Dark Mode";
-      localStorage.setItem("darkMode", "false");
+}
+
+function dModeToggle() {
+  let darkModeText = document.getElementById("darkModeText");
+
+  if(localStorage.getItem("Dark") == 0) {
+      document.body.style.backgroundColor = "#232D3F";
+      localStorage.setItem("Dark", 1);
+
+
+      const elements = document.getElementsByClassName("text");
+      for (const element of elements) {
+          element.style.color = "#FFFFFF";
+      }
+
+      const navbar = document.getElementsByClassName("navbar-custom")[0];
+      if (navbar) {
+          navbar.style.backgroundColor = "#2c3f50";
+      }
+
+      const blueContainer = document.querySelector(".blue-container");
+      if (blueContainer) {
+          blueContainer.style.backgroundColor = "#2c3f50";
+      }
+
+      darkModeText.textContent = "Light Mode";
+    } else {
+      document.body.style.backgroundColor = "#FFFFFF";
+      localStorage.setItem("Dark", 0);
+
+      const elements = document.getElementsByClassName("text");
+      for (const element of elements) {
+          element.style.color = "#000000";
+      }
+
+      const navbar = document.getElementsByClassName("navbar-custom")[0];
+      if (navbar) {
+          navbar.style.backgroundColor = "#cae3ec";
+      }
+
+      const blueContainer = document.querySelector(".blue-container");
+      if (blueContainer) {
+          blueContainer.style.backgroundColor = "#cae3ec";
+      }
+
+      darkModeText.textContent = "Dark Mode";
   }
 }
 
@@ -135,3 +175,4 @@ window.onload = function () {
   window.onload = function() {
     footerVisibility();
   }
+  
