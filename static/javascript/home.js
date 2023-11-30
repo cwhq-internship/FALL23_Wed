@@ -132,10 +132,13 @@ window.onload = function () {
     /* this would just involve selecting a new word from the list and then setting up the word it shows 
     idk how to explain better
     -Daniel B. */
+    var randomWord = selectRandomWord(difficulty);
+    document.getElementById("currentWord").innerHTML = randomWord;
     console.log(difficulty);
   }
   
-  function randomWord(difficulty){
+  function selectRandomWord(difficulty){
+
     if (difficulty == 0){ //pull random word from easy list
 
     } else if (difficulty == 1){ //pull word from medium list or easy list
@@ -146,6 +149,9 @@ window.onload = function () {
       alert("Incorrect variable input, error")
       window.location.href = "{{url_for('home')}}"
     }
+
+    var number = Math.floor(Math.random() * 900) + 100;
+    return number;
   }
 
   function hideFooter(){
