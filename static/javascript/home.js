@@ -149,7 +149,6 @@ window.onload = function () {
   }
 
   function hideFooter(){
-    console.log(sessionStorage.getItem("clickCount") + " 3");
     var footer = document.getElementById("footer");
     if (document.getElementById("main-home")){var main_home = document.getElementById("main-home");}
     if (document.getElementById("main-about")) {var main_about = document.getElementById("main-about");}
@@ -159,16 +158,13 @@ window.onload = function () {
     if (main_about){main_about.style.marginBottom = "10px";}
     if (main_stats){main_stats.style.marginBottom = "10px";}
     sessionStorage.setItem("clickCount", 1);
-    console.log(sessionStorage.getItem("clickCount") + " 4");
   }
 
   function footerVisibility() {
     var sessionclickCount = sessionStorage.getItem("clickCount");
     console.log(sessionStorage.getItem("clickCount") + " 2");
     if (Number(sessionclickCount) > 0) {
-      console.log("run hideFooter");
       hideFooter();
-      console.log("hideFooter complete");
     }
   }
 
