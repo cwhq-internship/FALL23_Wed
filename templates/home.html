@@ -14,8 +14,8 @@
         <img src="{{url_for('static', filename='images/typewriter.png')}}" class="rounded mx-auto d-block">
     </div> 
     <div>
-        <h1 class="text-center font-weight-bold">Wizard Type</h1>
-        <p class="text-center">Test your typing skills, built by CodeWizardsHQ students</p>
+        <h1 class="text-center font-weight-bold text">Wizard Type</h1>
+        <p class="text-center text">Test your typing skills, built by CodeWizardsHQ students</p>
     </div>
 </div>
 
@@ -23,25 +23,25 @@
 <div id="main-home">
     <div class="maininput">
         <form class="start_game game_class" onsubmit="return false">
-            <h1 class="be">Create Test</h1>
-            <p class="be">Number of words:</p>
+            <h1 class="text">Create Test</h1>
+            <p class="text"> Number of words:</p>
             <input type="number" name="wordNumber" id="wordNumber" required><br><br>
 
-            <p class="be">Max amount of time:</p>
+            <p class="text">Max amount of time:</p>
             <input type="number" name="gameTime" id="gameTime" required><br><br>
             
-            <h4 class="be">Difficulty level:</h4>
+            <h4 class="text">Difficulty level:</h4>
             <input type="radio" name="difficulty" id="easyDiff" checked required>
-            <label class="be" for="easyDiff">Easy (3-6 letter words)</label><br>
+            <label for="easyDiff" class="text">Easy (3-6 letter words)</label><br>
             
             <input type="radio" name="difficulty" id="mediumDiff" required>
-            <label class="be" for="mediumDiff">Medium (3-9 letter words)</label><br>
+            <label for="mediumDiff" class="text">Medium (3-9 letter words)</label><br>
             
             <input type="radio" name="difficulty" id="hardDiff" required>
-            <label class="be" for="hardDiff">Hard (Any word length)</label><br><br>
+            <label for="hardDiff" class="text"> Hard (Any word length)</label><br><br>
             
             <input type="checkbox" name="togglePassing" id="togglePassing">
-            <label class="be" for="togglePassing">Allow passing to the next word</label><br><br>
+            <label for="togglePassing" class="text">Allow passing to the next word</label><br><br>
             
             <input type="submit" id="gameSubmitButton" class="be" onclick="inputFormValues()"><br>
         </form>
@@ -62,6 +62,8 @@
     <script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
     <script>
 
+    
+
     function inputFormValues(){
         //sets variables to their form equivalents
         var formWordNumber = $(document.querySelector("#wordNumber")).val() //number of words
@@ -76,6 +78,7 @@
 
         //sets difficulty to 0 if game is easy, 1 if medium, 2 if hard
         if (mediumDifficulty.checked){
+
             formDifficulty = 1;
         }
         else if (hardDifficulty.checked){

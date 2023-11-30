@@ -41,10 +41,10 @@
 {% endblock %}
 
 {% block content %}
-</body>
+<body>
 <div class="container" id="main-stats" style="margin-right: 5%; margin-left: 5%">
-    <h1 style="margin-top:50px;">Statistics</h1>
-    <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-5">
+    <h1 style="margin-top:50px;" class="text">Statistics</h1>
+    <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-5 text">
         <div class="col">
             <h2 class="be">387</h2>
             <p class="be">tests generated</p>
@@ -63,7 +63,7 @@
         </div>
     </div>
     <hr size="4" width="80%" color="black">
-    <div class="row g-7 row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="row g-7 row-cols-1 row-cols-sm-2 row-cols-md-4 text">
         <div class="col">
             <h6 class="be">Word Difficulty</h6>
             <div id="chart_div"></div>
@@ -78,12 +78,15 @@
         </div>
     </div>
 </div>
+</body>
 {% endblock %}
 
 {% block scripts %}
+
+<script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
 <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"></script>
-      <script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
+    
 {% endblock %}

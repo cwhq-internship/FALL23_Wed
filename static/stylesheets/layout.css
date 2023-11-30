@@ -88,11 +88,93 @@ body{
   float: left;
   padding: 20px;
 }
-#footer-hide-button{
+
+#footer-close-button {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding:5px;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  height: 32px;
+  margin-top: 5px;
+  margin-right: 95%;
+}
+
+#footer-close-button:hover {
+  background-color: white;
+  color: black;
+}
+
+#timer {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#time-left {
+  font-weight: bold;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align to the right */
+  padding-right: 20px; /* Optional: Add some padding for spacing */
+}
+
+
+/* Style for the slider */
+.slider {
+  /* Your slider styles */
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+}
+
+#darkModeToggle {
+  position: absolute;
+  top:20px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#darkModeToggle + .slider {
+  cursor: pointer;
+}
+
+#darkModeToggle:checked + .slider {
+  background-color: #2196F3; /* Adjust color for checked state */
+}
+
+/* Styling the slider's circle (thumb) */
+.slider:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Move the circle (thumb) to the right when checkbox is checked */
+#darkModeToggle:checked + .slider:after {
+  transform: translateX(20px);
+}
+
+/* #footer-hide-button{
   position: relative;
   right: 1px;
   font-size: 9px;
-}
+} */
 #main-home{
   margin-bottom: 150px;
 }
@@ -101,4 +183,10 @@ body{
 }
 #main-stats{
   margin-bottom: 200px;
+
+}
+
+#special-container{
+  max-width:50px;
+  height:auto;
 }
