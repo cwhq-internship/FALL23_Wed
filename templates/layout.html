@@ -83,19 +83,10 @@
             </div>
         </div>
         <script>
-          sessionStorage.clickcount = 0;
-          function remove() {
-            var foot = document.getElementById("foot");
-            foot.remove();
-            sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+          if (sessionStorage.getItem("clickCount" == null))
+          {
+            sessionStorage.setItem("clickCount", 0);
           }
-
-          function footerVisibility() {
-            if (Number(sessionStorage.clickcount) > 0) {
-              remove();
-            }
-          }
-
           window.onload = function() {
             footerVisibility();
           }
