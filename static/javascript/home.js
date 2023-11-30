@@ -1,22 +1,41 @@
 console.log('Home.js Loaded');
 console.log('Jquery Version:', jQuery.fn.jquery);
+if(localStorage.getItem("Dark") == 1) {
+  document.body.style.backgroundColor = "#232D3F";
+  var elms = document.getElementsByClassName("be");
+  for(var i = 0; i < elms.length; i++) 
+  elms[i].style.color='white';
+  document.querySelector("#dMode").textContent = "Click for Light Mode";
+} else {
+  document.body.style.backgroundColor = "#FFFFFF";
+  var elms = document.getElementsByClassName("be");
+  for(var i = 0; i < elms.length; i++) 
+  elms[i].style.color='black';
+  document.querySelector("#dMode").textContent = "Click for Dark Mode";
+}
 
 function dModeToggle() {
     let btnText = document.querySelector("#dMode").textContent;
 
-    if(btnText == "Click for Dark Mode") {
+    if(localStorage.getItem("Dark") == 0) {
       document.body.style.backgroundColor = "#232D3F";
+      localStorage.setItem("Dark", 1);
 
-      const element = document.querySelector(".text");
-      element.style.color = "#008170";
+      var elms = document.querySelectorAll("[class='be']");
+ 
+      for(var i = 0; i < elms.length; i++) 
+      elms[i].style.color='white';
 
       document.querySelector("#dMode").textContent = "Click for Light Mode";
-
+      
     } else {
       document.body.style.backgroundColor = "#FFFFFF";
+      localStorage.setItem("Dark", 0);
     
-      const element = document.querySelector(".text");
-      element.style.color = "#8EACCD";
+      var elms = document.querySelectorAll("[class='be']");
+ 
+      for(var i = 0; i < elms.length; i++) 
+      elms[i].style.color='black';
 
       document.querySelector("#dMode").textContent = "Click for Dark Mode";
     }
