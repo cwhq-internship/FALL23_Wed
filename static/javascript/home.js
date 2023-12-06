@@ -166,15 +166,22 @@ window.onload = function () {
     sessionStorage.setItem("clickCount", 1);
   }
 
+  function showFooter() {
+    footer.style.display = "inline";
+  }
+
   function footerVisibility() {
     var sessionclickCount = sessionStorage.getItem("clickCount");
     console.log(sessionStorage.getItem("clickCount") + " 2");
     if (Number(sessionclickCount) > 0) {
       hideFooter();
     }
+    else {
+      showFooter();
+    }
   }
 
-  window.onload = function() {
-    footerVisibility();
-  }
+document.addEventListener("DOMContentLoaded", function() {
+  footerVisibility();
+});
   
