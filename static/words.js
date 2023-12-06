@@ -91,7 +91,7 @@ easyWordsList = [
 "pillow",
 "forest",
 "rocket",
-"walnut,
+"walnut",
 "dragon",
 "orange",
 "butter",
