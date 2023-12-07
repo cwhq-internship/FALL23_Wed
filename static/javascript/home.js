@@ -122,9 +122,9 @@ function checkWord(difficulty, time){
     if (currentWord == typedWord){
       document.getElementById("maininputbox").value = "";
       nextWord(difficulty);
-     totalWordsTyped++;
-     wordsLeft--;
-     document.getElementById("wordsToGo").innerHTML = "Words left: " + wordsLeft;
+      totalWordsTyped++;
+      wordsLeft--;
+      document.getElementById("wordsToGo").innerHTML = "Words left: " + wordsLeft;
       console.log("Total words typed: " + totalWordsTyped + "\nTotal words to type: " + wordNumber);
     }
    if (totalWordsTyped == wordNumber){
