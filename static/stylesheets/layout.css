@@ -10,6 +10,7 @@
   left: 0px;
   color:white;
   text-align: right;
+  display: none;
  }
  #inner-footer{
   text-align: center;
