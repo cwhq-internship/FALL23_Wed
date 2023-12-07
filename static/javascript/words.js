@@ -1,4 +1,4 @@
-easyWordsList = [
+export const easyWordsList = [
 "cat",
 "dog",
 "run",
@@ -101,7 +101,7 @@ easyWordsList = [
 "silver"
 ];
 
-mediumWordsList = [
+ export const mediumWordsList = [
 "cat",
 "dog",
 "run",
@@ -197,7 +197,7 @@ mediumWordsList = [
 "sunshine"
 ];
 
-hardWordsList = [
+ export const hardWordsList = [
 "cat",
 "dog",
 "run",
