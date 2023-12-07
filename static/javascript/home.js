@@ -1,5 +1,6 @@
 console.log('Home.js Loaded');
 console.log('Jquery Version:', jQuery.fn.jquery);
+
 if(localStorage.getItem("Dark") == 1) {
   document.body.style.backgroundColor = "#232D3F";
       localStorage.setItem("Dark", 1);
@@ -99,9 +100,6 @@ window.onload = function () {
   }
 };
 
-
-
-
   function mainGame(numberWords, time, difficulty, allowPassing){
 
     /* idea for current typing system:
@@ -134,24 +132,23 @@ window.onload = function () {
     -Daniel B. */
     var randomWord = selectRandomWord(difficulty);
     document.getElementById("currentWord").innerHTML = randomWord;
-    console.log(difficulty);
   }
   
   function selectRandomWord(difficulty){
 
+    var randomWord = "";
+
     if (difficulty == 0){ //pull random word from easy list
-
-    } else if (difficulty == 1){ //pull word from medium list or easy list
-
-    } else if (difficulty == 2){ //pull word from any of the three lists
-
+      randomWord = easyWordsList[Math.floor(Math.random() * easyWordsList.length)];
+    } else if (difficulty == 1){ //pull word from medium list
+      randomWord = mediumWordsList[Math.floor(Math.random() * mediumWordsList.length)];
+    } else if (difficulty == 2){ //pull word from hard list
+      randomWord = hardWordsList[Math.floor(Math.random() * hardWordsList.length)];
     } else{
-      alert("Incorrect variable input, error")
-      window.location.href = "{{url_for('home')}}"
+      alert("Incorrect variable input, error");
+      window.location.href = "{{url_for('home')}}";
     }
-
-    var number = Math.floor(Math.random() * 900) + 100;
-    return number;
+    return randomWord;
   }
 
   function hideFooter(){
@@ -172,7 +169,6 @@ window.onload = function () {
 
   function footerVisibility() {
     var sessionclickCount = sessionStorage.getItem("clickCount");
-    console.log(sessionStorage.getItem("clickCount") + " 2");
     if (Number(sessionclickCount) > 0) {
       hideFooter();
     }
