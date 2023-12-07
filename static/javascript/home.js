@@ -1,6 +1,8 @@
 console.log('Home.js Loaded');
 console.log('Jquery Version:', jQuery.fn.jquery);
 
+var totalWordsTyped = 0;
+
 if(localStorage.getItem("Dark") == 1) {
   document.body.style.backgroundColor = "#232D3F";
       localStorage.setItem("Dark", 1);
@@ -100,44 +102,73 @@ window.onload = function () {
   }
 };
 
-  function mainGame(numberWords, time, difficulty, allowPassing){
+function startGame(numberWords, time, difficulty, allowPassing){
+  /* idea for current typing system:
+      get a word from a random list. that's setWord.
+      every time the user types a letter, it fills in the word they're typing (updates wordTyped variable)
+      if wordTyped==setWord, then complete and move to next word (run like nextWord() or something). This is our new setWord.
+      Repeat until number of words complete is the number we want.
+      or something like that
+          --Daniel B. */
+      nextWord(difficulty);
+      document.getElementById("maininputbox").addEventListener("keyup", function (evt) {checkWord(difficulty, time);}, false);
+}
 
-    /* idea for current typing system:
-        get a word from a random list. that's setWord.
-        every time the user types a letter, it fills in the word they're typing (updates wordTyped variable)
-        if wordTyped==setWord, then complete and move to next word (run like nextWord() or something). This is our new setWord.
-        Repeat until number of words complete is the number we want.
-        or something like that
-            --Daniel B. */
-        
-        
-        
-        
-  }
-
-  function checkWord(difficulty){
+function checkWord(difficulty, time){
+    if (wordsLeft > 0){
     currentWord = document.getElementById("currentWord").textContent;
     typedWord = document.getElementById("maininputbox").value;
-    console.log(currentWord + "\n" + typedWord);
+    //console.log(currentWord + "\n" + typedWord);
     if (currentWord == typedWord){
-      alert("yay!")
       document.getElementById("maininputbox").value = "";
       nextWord(difficulty);
+     totalWordsTyped++;
+     wordsLeft--;
+     document.getElementById("wordsToGo").innerHTML = "Words left: " + wordsLeft;
+      console.log("Total words typed: " + totalWordsTyped + "\nTotal words to type: " + wordNumber);
+    }
+   if (totalWordsTyped == wordNumber){
+     endGame();
     }
   }
+}
 
-  function nextWord(difficulty){
-    /* this would just involve selecting a new word from the list and then setting up the word it shows 
-    idk how to explain better
-    -Daniel B. */
-    var randomWord = selectRandomWord(difficulty);
-    document.getElementById("currentWord").innerHTML = randomWord;
+function nextWord(difficulty){
+  var randomWord = selectRandomWord(difficulty);
+  document.getElementById("currentWord").innerHTML = randomWord;
+}
+
+function endGame(){
+  alert("done! (Timer over or total words typed)");
+}
+
+function timerDown(){
+  var timerText;
+  var minutes = parseInt(timer/60);
+  var seconds = timer%60;
+  if (seconds==0){
+    seconds = "00";
+  } else if (seconds <= 9){
+    seconds = "0" + seconds;
   }
-  
-  function selectRandomWord(difficulty){
 
+  timer--;
+  if (timer == 0){
+    endGame();
+  } 
+
+  if (timer == 1){
+    timerText = "Time left: " + minutes + ":" + seconds;
+  } else {
+    timerText = "Time left: " + minutes + ":" + seconds;
+  }
+  document.getElementById("gameTimer").textContent = timerText;
+  //console.log(timerText);
+  return timer;
+}
+
+function selectRandomWord(difficulty){
     var randomWord = "";
-
     if (difficulty == 0){ //pull random word from easy list
       randomWord = easyWordsList[Math.floor(Math.random() * easyWordsList.length)];
     } else if (difficulty == 1){ //pull word from medium list
@@ -146,12 +177,12 @@ window.onload = function () {
       randomWord = hardWordsList[Math.floor(Math.random() * hardWordsList.length)];
     } else{
       alert("Incorrect variable input, error");
-      window.location.href = "{{url_for('home')}}";
+      window.location.href = "../../../../";
     }
     return randomWord;
-  }
+}
 
-  function hideFooter(){
+function hideFooter(){
     var footer = document.getElementById("footer");
     if (document.getElementById("main-home")){var main_home = document.getElementById("main-home");}
     if (document.getElementById("main-about")) {var main_about = document.getElementById("main-about");}
@@ -161,21 +192,21 @@ window.onload = function () {
     if (main_about){main_about.style.marginBottom = "10px";}
     if (main_stats){main_stats.style.marginBottom = "10px";}
     sessionStorage.setItem("clickCount", 1);
-  }
+}
 
-  function showFooter() {
+function showFooter() {
     footer.style.display = "inline";
-  }
+}
 
-  function footerVisibility() {
-    var sessionclickCount = sessionStorage.getItem("clickCount");
-    if (Number(sessionclickCount) > 0) {
-      hideFooter();
-    }
-    else {
-      showFooter();
-    }
+function footerVisibility() {
+  var sessionclickCount = sessionStorage.getItem("clickCount");
+  if (Number(sessionclickCount) > 0) {
+    hideFooter();
   }
+  else {
+    showFooter();
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   footerVisibility();

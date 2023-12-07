@@ -12,6 +12,8 @@
         <h2>Current word:</h2>
         <h1 id="currentWord">test</h1>
         <input type="text" id="maininputbox">
+        <p id="wordsToGo">Words left: {{wordNumber}}</p>
+        <p id="gameTimer"></p>
     </div>
 </div>
  <br>
@@ -28,8 +30,22 @@
 <script src="{{ url_for('static', filename='javascript/words.js') }}"></script>
 
 <script>
+    var wordNumber = parseInt("{{wordNumber}}");
+    var time = parseInt("{{gameTime}}");
+    var difficulty = parseInt("{{difficulty}}");
+    var togglePassing = parseInt("{{togglePassing}}");
+    var wordsLeft = wordNumber;
+    var timer = time * 60;
     console.log("Number of words: {{wordNumber}} \nAmount of time: {{gameTime}}\nDifficulty: {{difficulty}}\nAllow passing: {{togglePassing}}");
-    document.getElementById("maininputbox").addEventListener("keyup", function (evt) {checkWord('{{difficulty}}');}, false);
+    window.onload = function (){
+        startGame(wordNumber, time, difficulty, togglePassing);
+    };
+    timerInterval = setInterval(function() {
+        timerDown();
+        if (timer <= 0){
+            clearInterval(timerInterval);
+        }
+    }, 1000);
 
 </script>
 
