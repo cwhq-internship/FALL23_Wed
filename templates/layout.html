@@ -33,6 +33,14 @@
           {% endif %}
         </title>
 
+        <style type="text/css">
+          .navbar-brand{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+          }
+        </style>
+
         <!-- active page stuff -->
 
         <!-- For adding any additional stylesheets to a template -->
@@ -41,7 +49,8 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-custom navbar-expand-lg">
+        <!-- <nav class="navbar navbar-custom navbar-expand-lg">
+
           <div class="dark-mode-toggle">
             <input type="checkbox" id="darkModeToggle" onchange="dModeToggle()" style="display: none;">
             <label for="darkModeToggle" class="slider"></label>
@@ -50,11 +59,6 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
-          <!-- <div class="container">
-            <img src="{{url_for('static', filename='images/typewriter.png')}}" id="special-container" class="mx-auto d-inline-block">
-            <h4 class="text-center d-inline-block">Wizard Type</h1>
-          </div> -->
 
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
@@ -70,8 +74,10 @@
             </ul>
           </div>
         </nav>
+
         
         
+         -->
         
 
       
@@ -99,5 +105,23 @@
               </a>
             </div>
         </div>
+        <script>
+          sessionStorage.clickcount = 0;
+          function remove() {
+            var foot = document.getElementById("foot");
+            foot.remove();
+            sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+          }
+
+          function footerVisibility() {
+            if (Number(sessionStorage.clickcount) > 0) {
+              remove();
+            }
+          }
+
+          window.onload = function() {
+            footerVisibility();
+          }
+        </script>
     </body>
 </html>
