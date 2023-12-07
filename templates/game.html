@@ -37,9 +37,7 @@
     var wordsLeft = wordNumber;
     var timer = time * 60;
     console.log("Number of words: {{wordNumber}} \nAmount of time: {{gameTime}}\nDifficulty: {{difficulty}}\nAllow passing: {{togglePassing}}");
-    window.onload = function (){
-        startGame(wordNumber, time, difficulty, togglePassing);
-    };
+    startGame(wordNumber, time, difficulty, togglePassing);
     timerInterval = setInterval(function() {
         timerDown();
         if (timer <= 0){
