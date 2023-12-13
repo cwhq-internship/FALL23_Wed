@@ -2,93 +2,63 @@ console.log('Home.js Loaded');
 console.log('Jquery Version:', jQuery.fn.jquery);
 
 var totalWordsTyped = 0;
-if(localStorage.getItem("Dark") == 1) {
+
+function lModeStuff() {
   document.body.style.backgroundColor = "#232D3F";
-      localStorage.setItem("Dark", 1);
+  localStorage.setItem("Dark", 1);
 
 
-      const elements = document.getElementsByClassName("text");
-      for (const element of elements) {
-          element.style.color = "#FFFFFF";
-      }
+  const elements = document.getElementsByClassName("text");
+  for (const element of elements) {
+      element.style.color = "#FFFFFF";
+  }
 
-      const navbar = document.getElementsByClassName("navbar-custom")[0];
-      if (navbar) {
-          navbar.style.backgroundColor = "#2c3f50";
-      }
+  const navbar = document.getElementsByClassName("navbar-custom")[0];
+  if (navbar) {
+      navbar.style.backgroundColor = "#2c3f50";
+  }
 
-      const blueContainer = document.querySelector(".blue-container");
-      if (blueContainer) {
-          blueContainer.style.backgroundColor = "#2c3f50";
-      }
+  const blueContainer = document.querySelector(".blue-container");
+  if (blueContainer) {
+      blueContainer.style.backgroundColor = "#2c3f50";
+  }
 
-      darkModeText.textContent = "Light Mode";
-} else {
+  darkModeText.textContent = "Light Mode";
+}
+
+function dModeStuff() {
   document.body.style.backgroundColor = "#FFFFFF";
-      localStorage.setItem("Dark", 0);
+  localStorage.setItem("Dark", 0);
 
-      const elements = document.getElementsByClassName("text");
-      for (const element of elements) {
-          element.style.color = "#000000";
-      }
+  const elements = document.getElementsByClassName("text");
+  for (const element of elements) {
+      element.style.color = "#000000";
+  }
 
-      const navbar = document.getElementsByClassName("navbar-custom")[0];
-      if (navbar) {
-          navbar.style.backgroundColor = "#cae3ec";
-      }
+  const navbar = document.getElementsByClassName("navbar-custom")[0];
+  if (navbar) {
+      navbar.style.backgroundColor = "#cae3ec";
+  }
 
-      const blueContainer = document.querySelector(".blue-container");
-      if (blueContainer) {
-          blueContainer.style.backgroundColor = "#cae3ec";
-      }
+  const blueContainer = document.querySelector(".blue-container");
+  if (blueContainer) {
+      blueContainer.style.backgroundColor = "#cae3ec";
+  }
 
-      darkModeText.textContent = "Dark Mode";
+  darkModeText.textContent = "Dark Mode";
+}
+
+if(localStorage.getItem("Dark") == 1) {
+  lModeStuff();
+} else {
+  dModeStuff();
 }
 
 function dModeToggle() {
-  let darkModeText = document.getElementById("darkModeText");
-
   if(localStorage.getItem("Dark") == 0) {
-      document.body.style.backgroundColor = "#232D3F";
-      localStorage.setItem("Dark", 1);
-
-
-      const elements = document.getElementsByClassName("text");
-      for (const element of elements) {
-          element.style.color = "#FFFFFF";
-      }
-
-      const navbar = document.getElementsByClassName("navbar-custom")[0];
-      if (navbar) {
-          navbar.style.backgroundColor = "#2c3f50";
-      }
-
-      const blueContainer = document.querySelector(".blue-container");
-      if (blueContainer) {
-          blueContainer.style.backgroundColor = "#2c3f50";
-      }
-
-      darkModeText.textContent = "Light Mode";
+      lModeStuff();
     } else {
-      document.body.style.backgroundColor = "#FFFFFF";
-      localStorage.setItem("Dark", 0);
-
-      const elements = document.getElementsByClassName("text");
-      for (const element of elements) {
-          element.style.color = "#000000";
-      }
-
-      const navbar = document.getElementsByClassName("navbar-custom")[0];
-      if (navbar) {
-          navbar.style.backgroundColor = "#cae3ec";
-      }
-
-      const blueContainer = document.querySelector(".blue-container");
-      if (blueContainer) {
-          blueContainer.style.backgroundColor = "#cae3ec";
-      }
-
-      darkModeText.textContent = "Dark Mode";
+      dModeStuff();
   }
 }
 
