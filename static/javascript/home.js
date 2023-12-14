@@ -103,7 +103,23 @@ function nextWord(difficulty){
 }
 
 function endGame(){
-  alert("done! (Timer over or total words typed)");
+  clearInterval(timerInterval);
+  document.getElementById("maingame").style.display = "none";
+  document.getElementById("aftergame").style.display = "block";
+  var WPM = calculateWPM();
+  document.getElementById("WPMCounter").innerHTML = WPM + " wpm (words per minute)";
+}
+
+function calculateWPM(){
+  timeSpent = time*60-timer; 
+  console.log(timeSpent + " seconds spent on game");
+  wordsPerMinute = (totalWordsTyped*60)/timeSpent;
+  console.log(wordsPerMinute + " wpm");
+  return wordsPerMinute;
+}
+
+function submitScores(){
+
 }
 
 function timerDown(){
@@ -115,7 +131,6 @@ function timerDown(){
   } else if (seconds <= 9){
     seconds = "0" + seconds;
   }
-
   timer--;
   if (timer == 0){
     endGame();
@@ -128,6 +143,7 @@ function timerDown(){
   }
   document.getElementById("gameTimer").textContent = timerText;
   //console.log(timerText);
+  //console.log(timer);
   return timer;
 }
 

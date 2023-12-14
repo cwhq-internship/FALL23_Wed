@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="maingame">
+<div id="maingame">
     <div>
         <h2>Current word:</h2>
         <h1 id="currentWord">test</h1>
@@ -16,12 +16,15 @@
         <p id="gameTimer"></p>
     </div>
 </div>
- <br>
-(Devs: Check console log.)
+<div id="aftergame">
+    <p>Congrats! You finished!</p>
+    <p id="WPMCounter"></p>
+    <button onclick="submitScores()">Submit score (currently does nothing lol)</button>
+</div>
 
 <br><br>
 <a href="{{url_for('home')}}">
-    <button class="be">Back</button>
+    <button class="be">Home</button>
 </a>
 {% endblock %}
 
@@ -44,6 +47,9 @@
             clearInterval(timerInterval);
         }
     }, 1000);
+    window.onload = function(){
+        document.getElementById("aftergame").style.display = "none";
+    }
 
 </script>
 
