@@ -106,8 +106,7 @@ function endGame(){
   clearInterval(timerInterval);
   document.getElementById("maingame").style.display = "none";
   document.getElementById("aftergame").style.display = "block";
-  var WPM = calculateWPM();
-  document.getElementById("WPMCounter").innerHTML = WPM + " wpm (words per minute)";
+  document.getElementById("WPMCounter").innerHTML = calculateWPM() + " wpm (words per minute)";
 }
 
 function calculateWPM(){
