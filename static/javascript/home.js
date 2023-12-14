@@ -48,9 +48,10 @@ function dModeStuff() {
   darkModeText.textContent = "Dark Mode";
 }
 
-if(localStorage.getItem("Dark") == 1) {
+if(localStorage.getItem("Dark") == 0) {
   lModeStuff();
 } else {
+  $("#darkModeToggle").prop("checked", true);
   dModeStuff();
 }
 
