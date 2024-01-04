@@ -112,11 +112,23 @@ function endGame(){
   document.getElementById("WPMCounter").innerHTML = wordsPerMinute[0] + " wpm (words per minute)";
 }
 
+/*Takes a decimal, number, and rounds it to digitsRounded number of digits */
+function roundNumber(number, digitsRounded){
+  //console.log(number);
+  digitsRounded = 10 ** digitsRounded;
+  number = Math.round(number*digitsRounded);
+  number = number/digitsRounded;
+  //console.log(number);
+  return number;
+}
+
 /* Returns an array: index 0 is words per minute, index 1 is the time spent in-game */
 function calculateWPM(){
   timeSpent = time*60-timer; 
   //console.log(timeSpent + " seconds spent on game");
   wordsPerMinute = (totalWordsTyped*60)/timeSpent;
+  //console.log(wordsPerMinute + " wpm");
+  wordsPerMinute = roundNumber(wordsPerMinute, 2);
   //console.log(wordsPerMinute + " wpm");
   var array = [wordsPerMinute, timeSpent];
   return array; 
@@ -184,7 +196,7 @@ function selectRandomWord(difficulty){
     } else if (difficulty == 2){ //pull word from hard list
       randomWord = hardWordsList[Math.floor(Math.random() * hardWordsList.length)];
     } else{
-      alert("Incorrect variable input, error");
+      console.log("Incorrect variable input, error");
       window.location.href = "../../../../";
     }
     return randomWord;
