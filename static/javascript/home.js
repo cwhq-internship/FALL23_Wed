@@ -89,7 +89,9 @@ function checkWord(difficulty, time){
       totalWordsTyped++;
       wordsLeft--;
       document.getElementById("wordsToGo").innerHTML = "Words left: " + wordsLeft;
-      console.log("Total words typed: " + totalWordsTyped + "\nTotal words to type: " + wordNumber);
+      //console.log("Total words typed: " + totalWordsTyped + "\nTotal words to type: " + wordNumber);
+      wordArray[wordArray.length] = currentWord;
+      //console.log("Words typed: " + wordArray.toString());
     }
    if (totalWordsTyped == wordNumber){
      endGame();
@@ -106,32 +108,45 @@ function endGame(){
   clearInterval(timerInterval);
   document.getElementById("maingame").style.display = "none";
   document.getElementById("aftergame").style.display = "block";
-  document.getElementById("WPMCounter").innerHTML = calculateWPM() + " wpm (words per minute)";
+  var wordsPerMinute = calculateWPM()
+  document.getElementById("WPMCounter").innerHTML = wordsPerMinute[0] + " wpm (words per minute)";
 }
 
+/* Returns an array: index 0 is words per minute, index 1 is the time spent in-game */
 function calculateWPM(){
   timeSpent = time*60-timer; 
-  console.log(timeSpent + " seconds spent on game");
+  //console.log(timeSpent + " seconds spent on game");
   wordsPerMinute = (totalWordsTyped*60)/timeSpent;
-  console.log(wordsPerMinute + " wpm");
-  return wordsPerMinute;
+  //console.log(wordsPerMinute + " wpm");
+  var array = [wordsPerMinute, timeSpent];
+  return array; 
 }
 
 function submitScores(){
   //collect all variables
-  var WPM = calculateWPM();
-    //array of all words typed
-    //array of all words skipped
-    //number of words skipped (need a skip function)
-    //number of words typed
-    //type/skip ratio?
-    //time left when finished
+  var WPMArray = calculateWPM();
+  var WPM = WPMArray[0];
+  var timeSpent = WPMArray[1];
+  var failedGame = gameFailure;
+  var wordsTypedArray = wordArray;
+  var wordsSkippedArray = skippedArray;
+  var wordsTypedNumber = wordsTypedArray.length;
+  var wordsSkippedNumber = wordsSkippedArray.length;
+  var typedRatio = wordsTypedNumber/(wordsTypedNumber + wordsSkippedNumber)*100;
+  var skippedRatio = wordsSkippedNumber/(wordsTypedNumber + wordsSkippedNumber)*100;
   
+console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTimer ran out: " + failedGame
++ "\nWords typed: "+ wordsTypedArray + "\nWords skipped: " + wordsSkippedArray
++ "\nTotal words typed: " + wordsTypedNumber + "\nTotal words skipped: " + wordsSkippedNumber
++ "\nPercentage of words typed: " + typedRatio + "%\nPercentage of words skipped: " + skippedRatio + "%");
+
   //send to database
 }
 
 function skipWord(){
-  
+  //call an event listener on spacebar or clicking #skipButton
+  //add the skipped word to wordsSkippedArray
+  //call nextWord()
 }
 
 function timerDown(){
@@ -145,6 +160,7 @@ function timerDown(){
   }
   timer--;
   if (timer == 0){
+    gameFailure = true;
     endGame();
   } 
 
