@@ -118,7 +118,16 @@ function calculateWPM(){
 }
 
 function submitScores(){
-
+  //collect all variables
+  var WPM = calculateWPM();
+    //array of all words typed
+    //array of all words skipped
+    //number of words skipped (need a skip function)
+    //number of words typed
+    //type/skip ratio?
+    //time left when finished
+  
+  //send to database
 }
 
 function timerDown(){
