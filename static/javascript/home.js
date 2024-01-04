@@ -130,6 +130,10 @@ function submitScores(){
   //send to database
 }
 
+function skipWord(){
+  
+}
+
 function timerDown(){
   var timerText;
   var minutes = parseInt(timer/60);
