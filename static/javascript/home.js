@@ -1,6 +1,27 @@
 console.log('Home.js Loaded');
 console.log('Jquery Version:', jQuery.fn.jquery);
 
+// import { verbose as sqlite3 } from 'sqlite3';
+
+// const db = new sqlite3.Database('database/database.db');
+
+// db.run(`CREATE TABLE IF NOT EXISTS wordsTyped(
+//     id INTEGER PRIMARY KEY,
+//     words INTEGER
+// )`);
+
+// const insertQuery = `INSERT INTO wordsTyped (words) VALUES (?)`;
+// const word = 5;
+// db.run(insertQuery, [word], function (err) {
+//     if (err) {
+//         console.error(err.message);
+//     } else {
+//         console.log(`Inserted data with id ${this.lastID}`);
+//     }
+// });
+
+// db.close();
+
 var totalWordsTyped = 0;
 
 function lModeStuff() {
