@@ -48,9 +48,10 @@ function dModeStuff() {
   darkModeText.textContent = "Dark Mode";
 }
 
-if(localStorage.getItem("Dark") == 1) {
+if(localStorage.getItem("Dark") == 0) {
   lModeStuff();
 } else {
+  $("#darkModeToggle").prop("checked", true);
   dModeStuff();
 }
 
@@ -88,7 +89,9 @@ function checkWord(difficulty, time){
       totalWordsTyped++;
       wordsLeft--;
       document.getElementById("wordsToGo").innerHTML = "Words left: " + wordsLeft;
-      console.log("Total words typed: " + totalWordsTyped + "\nTotal words to type: " + wordNumber);
+      //console.log("Total words typed: " + totalWordsTyped + "\nTotal words to type: " + wordNumber);
+      wordArray[wordArray.length] = currentWord;
+      //console.log("Words typed: " + wordArray.toString());
     }
    if (totalWordsTyped == wordNumber){
      endGame();
@@ -102,7 +105,60 @@ function nextWord(difficulty){
 }
 
 function endGame(){
-  alert("done! (Timer over or total words typed)");
+  clearInterval(timerInterval);
+  document.getElementById("maingame").style.display = "none";
+  document.getElementById("aftergame").style.display = "block";
+  var wordsPerMinute = calculateWPM()
+  document.getElementById("WPMCounter").innerHTML = wordsPerMinute[0] + " wpm (words per minute)";
+}
+
+/*Takes a decimal, number, and rounds it to digitsRounded number of digits */
+function roundNumber(number, digitsRounded){
+  //console.log(number);
+  digitsRounded = 10 ** digitsRounded;
+  number = Math.round(number*digitsRounded);
+  number = number/digitsRounded;
+  //console.log(number);
+  return number;
+}
+
+/* Returns an array: index 0 is words per minute, index 1 is the time spent in-game */
+function calculateWPM(){
+  timeSpent = time*60-timer; 
+  //console.log(timeSpent + " seconds spent on game");
+  wordsPerMinute = (totalWordsTyped*60)/timeSpent;
+  //console.log(wordsPerMinute + " wpm");
+  wordsPerMinute = roundNumber(wordsPerMinute, 2);
+  //console.log(wordsPerMinute + " wpm");
+  var array = [wordsPerMinute, timeSpent];
+  return array; 
+}
+
+function submitScores(){
+  //collect all variables
+  var WPMArray = calculateWPM();
+  var WPM = WPMArray[0];
+  var timeSpent = WPMArray[1];
+  var failedGame = gameFailure;
+  var wordsTypedArray = wordArray;
+  var wordsSkippedArray = skippedArray;
+  var wordsTypedNumber = wordsTypedArray.length;
+  var wordsSkippedNumber = wordsSkippedArray.length;
+  var typedRatio = wordsTypedNumber/(wordsTypedNumber + wordsSkippedNumber)*100;
+  var skippedRatio = wordsSkippedNumber/(wordsTypedNumber + wordsSkippedNumber)*100;
+  
+console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTimer ran out: " + failedGame
++ "\nWords typed: "+ wordsTypedArray + "\nWords skipped: " + wordsSkippedArray
++ "\nTotal words typed: " + wordsTypedNumber + "\nTotal words skipped: " + wordsSkippedNumber
++ "\nPercentage of words typed: " + typedRatio + "%\nPercentage of words skipped: " + skippedRatio + "%");
+
+  //send to database
+}
+
+function skipWord(){
+  //call an event listener on spacebar or clicking #skipButton
+  //add the skipped word to wordsSkippedArray
+  //call nextWord()
 }
 
 function timerDown(){
@@ -114,9 +170,9 @@ function timerDown(){
   } else if (seconds <= 9){
     seconds = "0" + seconds;
   }
-
   timer--;
   if (timer == 0){
+    gameFailure = true;
     endGame();
   } 
 
@@ -127,6 +183,7 @@ function timerDown(){
   }
   document.getElementById("gameTimer").textContent = timerText;
   //console.log(timerText);
+  //console.log(timer);
   return timer;
 }
 
@@ -139,7 +196,7 @@ function selectRandomWord(difficulty){
     } else if (difficulty == 2){ //pull word from hard list
       randomWord = hardWordsList[Math.floor(Math.random() * hardWordsList.length)];
     } else{
-      alert("Incorrect variable input, error");
+      console.log("Incorrect variable input, error");
       window.location.href = "../../../../";
     }
     return randomWord;

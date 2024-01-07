@@ -7,21 +7,26 @@
 {% endblock %}
 
 {% block content %}
-<div class="maingame">
+<div id="maingame">
     <div>
         <h2>Current word:</h2>
         <h1 id="currentWord">test</h1>
-        <input type="text" id="maininputbox">
+        <input type="text" id="maininputbox"><br>
+        <button id="skipButton">Skip word</button>
+        <p>(You can also press the spacebar)</p>
         <p id="wordsToGo">Words left: {{wordNumber}}</p>
         <p id="gameTimer"></p>
     </div>
 </div>
- <br>
-(Devs: Check console log.)
+<div id="aftergame">
+    <p>Congrats! You finished!</p>
+    <p id="WPMCounter"></p>
+    <button onclick="submitScores()">Submit score (console logs but no actual submitting)</button>
+</div>
 
 <br><br>
 <a href="{{url_for('home')}}">
-    <button class="be">Back</button>
+    <button class="be">Home</button>
 </a>
 {% endblock %}
 
@@ -36,6 +41,9 @@
     var togglePassing = parseInt("{{togglePassing}}");
     var wordsLeft = wordNumber;
     var timer = time * 60;
+    var wordArray = [];
+    var skippedArray = [];
+    var gameFailure = false;
     console.log("Number of words: {{wordNumber}} \nAmount of time: {{gameTime}}\nDifficulty: {{difficulty}}\nAllow passing: {{togglePassing}}");
     startGame(wordNumber, time, difficulty, togglePassing);
     timerInterval = setInterval(function() {
@@ -44,6 +52,9 @@
             clearInterval(timerInterval);
         }
     }, 1000);
+    window.onload = function(){
+        document.getElementById("aftergame").style.display = "none";
+    }
 
 </script>
 
