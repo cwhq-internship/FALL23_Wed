@@ -97,6 +97,11 @@ function startGame(numberWords, time, difficulty, allowPassing){
   console.log("game start");    
   nextWord(difficulty);
   document.getElementById("maininputbox").addEventListener("keyup", function (evt) {checkWord(difficulty, time);}, false);
+  document.getElementById("maininputbox").addEventListener("keyup", event => {
+    if (event.code === 'Space') {
+      skipWord();
+    }
+  }, false);
 }
 
 function checkWord(difficulty, time){
@@ -166,7 +171,9 @@ function submitScores(){
   var wordsTypedNumber = wordsTypedArray.length;
   var wordsSkippedNumber = wordsSkippedArray.length;
   var typedRatio = wordsTypedNumber/(wordsTypedNumber + wordsSkippedNumber)*100;
+  typedRatio = roundNumber(typedRatio, 2);
   var skippedRatio = wordsSkippedNumber/(wordsTypedNumber + wordsSkippedNumber)*100;
+  skippedRatio = roundNumber(skippedRatio, 2);
   
 console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTimer ran out: " + failedGame
 + "\nWords typed: "+ wordsTypedArray + "\nWords skipped: " + wordsSkippedArray
@@ -177,9 +184,9 @@ console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTi
 }
 
 function skipWord(){
-  //call an event listener on spacebar or clicking #skipButton
-  //add the skipped word to wordsSkippedArray
-  //call nextWord()
+  skippedArray[skippedArray.length] = document.getElementById("currentWord").textContent;
+  document.getElementById("maininputbox").value = "";
+  nextWord(difficulty);
 }
 
 function timerDown(){
