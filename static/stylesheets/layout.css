@@ -52,6 +52,11 @@ body{
   margin-bottom: 20px;
 }
 
+#main-home {
+  width: 50%; /* You can adjust this value based on your design preferences */
+  margin: 0 auto;
+}
+
 #footer-close-button{
   background-color: black;
   color: white;
@@ -103,12 +108,15 @@ body{
   text-align: center;
 }
 
-.maininput{
-  text-align: center;
-  border: #6C757D 3px dashed;
-  width: 30%;
+#main-home {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid #ccc; /* Add a border with a color of your choice */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.maininput {
   padding: 20px;
-  padding-left: 50px;
 }
 
 .game_class{
