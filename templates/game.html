@@ -7,24 +7,29 @@
 {% endblock %}
 
 {% block content %}
-<div id="maingame">
+<div id="maingame"> <!--starts shown and is hidden once game is completed-->
     <div>
         <h2>Current word:</h2>
         <h1 id="currentWord">test</h1>
-        <input type="text" id="maininputbox"><br>
-        <button id="skipButton" onclick="skipWord()">Skip word</button>
-        <p>(You can also press the spacebar)</p>
+        <input type="text" id="maininputbox">
+        <br>
         <p id="wordsToGo">Words left: {{wordNumber}}</p>
+        <div id="skipEnabled">
+            <button id="skipButton">Skip word</button>
+            <p>(You can also press the spacebar to skip)</p>
+            <p id="skipCounter">Words skipped: 0</p>
+        </div>
         <p id="gameTimer"></p>
     </div>
 </div>
-<div id="aftergame">
+<div id="aftergame"><!--starts hidden and is shown once game is completed-->
     <p>Congrats! You finished!</p>
+    <p id="endingType">b</p>
     <p id="WPMCounter"></p>
     <button onclick="submitScores()">Submit score (console logs but no actual submitting)</button>
 </div>
 
-<br><br>
+<br>
 <a href="{{url_for('home')}}">
     <button class="be">Home</button>
 </a>
@@ -38,13 +43,13 @@
     var wordNumber = parseInt("{{wordNumber}}");
     var time = parseInt("{{gameTime}}");
     var difficulty = parseInt("{{difficulty}}");
-    var togglePassing = parseInt("{{togglePassing}}");
+    var togglePassing = "{{togglePassing}}";
     var wordsLeft = wordNumber;
     var timer = time * 60;
     var wordArray = [];
     var skippedArray = [];
     var gameFailure = false;
-    console.log("Number of words: {{wordNumber}} \nAmount of time: {{gameTime}}\nDifficulty: {{difficulty}}\nAllow passing: {{togglePassing}}");
+    console.log("Number of words: "+wordNumber+" \nAmount of time:"+time+"\nDifficulty:"+difficulty+"\nAllow passing: "+togglePassing);
     startGame(wordNumber, time, difficulty, togglePassing);
     timerInterval = setInterval(function() {
         timerDown();

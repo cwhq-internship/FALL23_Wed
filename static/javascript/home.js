@@ -90,15 +90,25 @@ window.onload = function () {
 };
 
 function startGame(numberWords, time, difficulty, allowPassing){
-  console.log("game start");    
+  console.log("game start");
   nextWord(difficulty);
   document.getElementById("maininputbox").addEventListener("keyup", function (evt) {checkWord(difficulty, time);}, false);
-  document.getElementById("maininputbox").addEventListener("keyup", event => {
-    if (event.code === 'Space') {
-      skipWord();
+ 
+  if (allowPassing == "true"){
+    document.getElementById("maininputbox").addEventListener("keyup", event => {
+      if (event.code === 'Space') {
+        
+        skipWord(allowPassing);
+      }
+     }, false);
+     document.getElementById("skipButton").addEventListener("click", function (evt) {skipWord(allowPassing);}, false);
+    } else {
+      document.getElementById("skipEnabled").style.display = "none";
     }
-  }, false);
 }
+
+/*
+ */
 
 function checkWord(difficulty, time){
     if (wordsLeft > 0){
@@ -116,7 +126,7 @@ function checkWord(difficulty, time){
       //console.log("Words typed: " + wordArray.toString());
     }
    if (totalWordsTyped == wordNumber){
-     endGame();
+     endGame(1);
     }
   }
 }
@@ -126,12 +136,19 @@ function nextWord(difficulty){
   document.getElementById("currentWord").innerHTML = randomWord;
 }
 
-function endGame(){
+function endGame(value){
   clearInterval(timerInterval);
   document.getElementById("maingame").style.display = "none";
   document.getElementById("aftergame").style.display = "block";
-  var wordsPerMinute = calculateWPM()
+  var wordsPerMinute = calculateWPM();
   document.getElementById("WPMCounter").innerHTML = wordsPerMinute[0] + " wpm (words per minute)";
+  if (value == 1){
+    document.getElementById("endingType").innerHTML = "You typed the required number of words!";
+  } else if (value == 2){
+    document.getElementById("endingType").innerHTML = "You ran out of time!";
+  } else if (value == 3){
+    document.getElementById("endingType").innerHTML = "You ran out of possible words to type! Maybe lay off the skip button...";
+  }
 }
 
 /*Takes a decimal, number, and rounds it to digitsRounded number of digits */
@@ -179,10 +196,13 @@ console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTi
   //send to database
 }
 
-function skipWord(){
-  skippedArray[skippedArray.length] = document.getElementById("currentWord").textContent;
-  document.getElementById("maininputbox").value = "";
-  nextWord(difficulty);
+function skipWord(allowPassing){
+  if (allowPassing){
+    skippedArray[skippedArray.length] = document.getElementById("currentWord").textContent; 
+    document.getElementById("maininputbox").value = "";
+    document.getElementById("skipCounter").textContent = "Words skipped: " + skippedArray.length;
+    nextWord(difficulty);
+  }
 }
 
 function timerDown(){
@@ -197,7 +217,7 @@ function timerDown(){
   timer--;
   if (timer == 0){
     gameFailure = true;
-    endGame();
+    endGame(2);
   } 
 
   if (timer == 1){
@@ -213,16 +233,24 @@ function timerDown(){
 
 function selectRandomWord(difficulty){
     var randomWord = "";
+    var wordsArray = [];
     if (difficulty == 0){ //pull random word from easy list
-      randomWord = easyWordsList[Math.floor(Math.random() * easyWordsList.length)];
+      wordsArray = easyWordsList;
     } else if (difficulty == 1){ //pull word from medium list
-      randomWord = mediumWordsList[Math.floor(Math.random() * mediumWordsList.length)];
+      wordsArray = mediumWordsList;
     } else if (difficulty == 2){ //pull word from hard list
-      randomWord = hardWordsList[Math.floor(Math.random() * hardWordsList.length)];
+      wordsArray = hardWordsList;
     } else{
       console.log("Incorrect variable input, error");
       window.location.href = "../../../../";
     }
+    if (wordsArray.length == 0){
+      endGame(3);
+    }
+    randomWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
+    var index = wordsArray.indexOf(randomWord);
+    wordsArray.splice(index, 1);
+    //console.log(wordsArray.toString());
     return randomWord;
 }
 

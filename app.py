@@ -31,7 +31,7 @@ def about():
     return render_template('about.html')
 
 @app.route('/game')
-@app.route('/game/<wordNumber>/<gameTime>/<difficulty>/<togglePassing>')
+@app.route('/game/<wordNumber>/<gameTime>/<difficulty>/<togglePassing>/run')
 def game(wordNumber, gameTime, difficulty, togglePassing):
     return render_template('game.html', wordNumber=wordNumber, gameTime=gameTime, difficulty=difficulty, togglePassing=togglePassing)
 
