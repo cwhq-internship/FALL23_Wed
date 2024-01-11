@@ -3,6 +3,27 @@
   Only update this css file if intending to apply universal styling to all templates
  */
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar{
+  height: 85px;
+}
+
+.navbar-brand img {
+  margin-right: 5px; /* Adjust the margin as needed */
+}
+
+.logo-text {
+  font-size: 30px; /* Adjust the font size as needed */
+  font-weight: bold;
+  color: #333333;
+  margin-right: 10px;
+}
+
+
 #title{
   color: #8EACCD;
 }
