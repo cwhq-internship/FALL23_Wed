@@ -3,6 +3,27 @@
   Only update this css file if intending to apply universal styling to all templates
  */
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar{
+  height: 85px;
+}
+
+.navbar-brand img {
+  margin-right: 5px; /* Adjust the margin as needed */
+}
+
+.logo-text {
+  font-size: 30px; /* Adjust the font size as needed */
+  font-weight: bold;
+  color: #333333;
+  margin-right: 10px;
+}
+
+
 #title{
   color: #8EACCD;
 }
@@ -50,6 +71,11 @@ body{
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#main-home {
+  width: 50%; /* You can adjust this value based on your design preferences */
+  margin: 0 auto;
 }
 
 #footer-close-button{
@@ -103,12 +129,15 @@ body{
   text-align: center;
 }
 
-.maininput{
-  text-align: center;
-  border: #6C757D 3px dashed;
-  width: 30%;
+#main-home {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid #ccc; /* Add a border with a color of your choice */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.maininput {
   padding: 20px;
-  padding-left: 50px;
 }
 
 .game_class{
