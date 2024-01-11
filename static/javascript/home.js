@@ -26,8 +26,7 @@ var totalWordsTyped = 0;
 
 function lModeStuff() {
   document.body.style.backgroundColor = "#232D3F";
-  localStorage.setItem("Dark", 1);
-
+  localStorage.setItem("darkMode", "true"); // Use "darkMode" as the key
 
   const elements = document.getElementsByClassName("text");
   for (const element of elements) {
@@ -44,12 +43,12 @@ function lModeStuff() {
       blueContainer.style.backgroundColor = "#2c3f50";
   }
 
-  darkModeText.textContent = "Light Mode";
+  darkModeText.textContent = "Dark Mode";
 }
 
 function dModeStuff() {
   document.body.style.backgroundColor = "#FFFFFF";
-  localStorage.setItem("Dark", 0);
+  localStorage.setItem("darkMode", "false"); // Use "darkMode" as the key
 
   const elements = document.getElementsByClassName("text");
   for (const element of elements) {
@@ -66,21 +65,15 @@ function dModeStuff() {
       blueContainer.style.backgroundColor = "#cae3ec";
   }
 
-  darkModeText.textContent = "Dark Mode";
+    darkModeText.textContent = "Light Mode";
 }
 
-if(localStorage.getItem("Dark") == 0) {
-  lModeStuff();
-} else {
-  $("#darkModeToggle").prop("checked", true);
-  dModeStuff();
-}
 
 function dModeToggle() {
-  if(localStorage.getItem("Dark") == 0) {
-      lModeStuff();
-    } else {
-      dModeStuff();
+  if (localStorage.getItem("darkMode") === "true") {
+    dModeStuff();
+  } else {
+    lModeStuff();
   }
 }
 
@@ -88,8 +81,11 @@ window.onload = function () {
   let storedDarkMode = localStorage.getItem("darkMode");
 
   if (storedDarkMode === "true") {
-      // Apply Dark Mode styles
-      dModeToggle();
+    // Apply Dark Mode styles
+    $("#darkModeToggle").prop("checked", true);
+    lModeStuff();
+  } else {
+    dModeStuff();
   }
 };
 
@@ -97,6 +93,11 @@ function startGame(numberWords, time, difficulty, allowPassing){
   console.log("game start");    
   nextWord(difficulty);
   document.getElementById("maininputbox").addEventListener("keyup", function (evt) {checkWord(difficulty, time);}, false);
+  document.getElementById("maininputbox").addEventListener("keyup", event => {
+    if (event.code === 'Space') {
+      skipWord();
+    }
+  }, false);
 }
 
 function checkWord(difficulty, time){
@@ -166,7 +167,9 @@ function submitScores(){
   var wordsTypedNumber = wordsTypedArray.length;
   var wordsSkippedNumber = wordsSkippedArray.length;
   var typedRatio = wordsTypedNumber/(wordsTypedNumber + wordsSkippedNumber)*100;
+  typedRatio = roundNumber(typedRatio, 2);
   var skippedRatio = wordsSkippedNumber/(wordsTypedNumber + wordsSkippedNumber)*100;
+  skippedRatio = roundNumber(skippedRatio, 2);
   
 console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTimer ran out: " + failedGame
 + "\nWords typed: "+ wordsTypedArray + "\nWords skipped: " + wordsSkippedArray
@@ -177,9 +180,9 @@ console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTi
 }
 
 function skipWord(){
-  //call an event listener on spacebar or clicking #skipButton
-  //add the skipped word to wordsSkippedArray
-  //call nextWord()
+  skippedArray[skippedArray.length] = document.getElementById("currentWord").textContent;
+  document.getElementById("maininputbox").value = "";
+  nextWord(difficulty);
 }
 
 function timerDown(){

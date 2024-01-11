@@ -42,35 +42,38 @@
 
 {% block content %}
 
-<!-- <nav class="navbar navbar-custom navbar-expand-lg">
+<nav class="navbar navbar-custom navbar-expand-lg">
 
-    <div class="dark-mode-toggle">
-      <input type="checkbox" id="darkModeToggle" onchange="dModeToggle()" style="display: none;">
-      <label for="darkModeToggle" class="slider"></label>
-      <span id="darkModeText" class="text"> Dark Mode</span>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="dark-mode-toggle">
+    <input type="checkbox" id="darkModeToggle" onchange="dModeToggle()" style="display: none;">
+    <label for="darkModeToggle" class="slider open-sidebar"></label>
+    <span id="darkModeText" class="text"> Dark Mode</span>
+  </div>
 
-    <a class="navbar-brand mx-auto" href="#">
-      <h3 style="font-size:20px; color:black;"><img src="{{url_for('static', filename='images/typewriter.png')}}" width="50" height="50"> Wizard Type</h3>
-    </a>
+  <a class="navbar-brand" href="#">
+    <img src="{{url_for('static', filename='images/typewriter.png')}}" alt="Your Logo" width="70" height="70">
+    <span class="logo-text">Wizard Type</span>
+  </a>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link text {{'active' if active_page == 'home' }}" href="{{url_for('home')}}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text {{'active' if active_page == 'about' }}" href="{{url_for('about')}}">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text {{'active' if active_page == 'stats' }}" href="{{url_for('stats')}}">Statistics</a>
-        </li>
-      </ul>
-    </div>
-  </nav> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text {{'active' if active_page == 'home' }}" href="{{url_for('home')}}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text {{'active' if active_page == 'about' }}" href="{{url_for('about')}}">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text {{'active' if active_page == 'stats' }}" href="{{url_for('stats')}}">Statistics</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <body>
 <div class="container" id="main-stats" style="margin-right: 5%; margin-left: 5%">
     <h1 style="margin-top:50px;" class="text">Statistics</h1>
