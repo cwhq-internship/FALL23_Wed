@@ -8,10 +8,6 @@
   align-items: center;
 }
 
-.navbar{
-  height: 85px;
-}
-
 .navbar-brand img {
   margin-right: 5px; /* Adjust the margin as needed */
 }
@@ -21,6 +17,48 @@
   font-weight: bold;
   color: #333333;
   margin-right: 10px;
+}
+
+.navimg {
+  width: 70px;
+  height: 70px;
+}
+
+.navbtnstyle {
+  position: relative;
+  left: 92.5%;
+  display: none;
+  bottom: 40px;
+  border-radius: 25%;
+  background-color:#ADD8E6;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 0.6%;
+  padding-bottom: 0.6%;
+}
+
+#homenavbtn {
+  border-radius: 25%;
+  background-color:#ADD8E6;
+  border: 2px solid black;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+}
+
+.hamburger {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .logo-text {
+    display: none;
+  }
+  .navimg {
+    display: none;
+  }
+  .navbtnstyle {
+    display: block;
+  }
 }
 
 

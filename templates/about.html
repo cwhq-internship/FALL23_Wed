@@ -24,13 +24,12 @@
         </div>
 
         <a class="navbar-brand" href="#">
-          <img src="{{url_for('static', filename='images/typewriter.png')}}" alt="Your Logo" width="70" height="70">
+          <img src="{{url_for('static', filename='images/typewriter.png')}}" alt="Your Logo" class="navimg">
           <span class="logo-text">Wizard Type</span>
         </a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          <i class="bi bi-list"></i>
+        <button class="navbtnstyle"type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list hamburger"></i>
         </button>
     
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -84,6 +83,10 @@
     </div>
 </div>
 </div>
+<script src="path/to/jquery.min.js"></script>
+<script src="path/to/popper.min.js"></script>
+<script src="path/to/bootstrap.min.js"></script>
+
 </body>
 {% endblock %}
 
