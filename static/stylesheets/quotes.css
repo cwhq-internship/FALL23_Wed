@@ -1,0 +1,454 @@
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}*/
+
+  
+  /* 
+    This affects all templates. 
+    Only update this css file if intending to apply universal styling to all templates
+   */
+  
+   .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand img {
+    margin-right: 5px; /* Adjust the margin as needed */
+  }
+  
+  .logo-text {
+    font-size: 30px; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: #333333;
+    margin-right: 10px;
+  }
+  
+  .navimg {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .navbtnstyle {
+    position: relative;
+    left: 92.5%;
+    display: none;
+    bottom: 40px;
+    border-radius: 25%;
+    background-color:#ADD8E6;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 0.6%;
+    padding-bottom: 0.6%;
+  }
+  
+  #homenavbtn {
+    border-radius: 25%;
+    background-color:#ADD8E6;
+    border: 2px solid black;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+  }
+  
+  .hamburger {
+    font-size: 20px;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .logo-text {
+      display: none;
+    }
+    .navimg {
+      display: none;
+    }
+    .navbtnstyle {
+      display: block;
+    }
+  }
+.body{
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+} 
+  
+  #title{
+    color: #8EACCD;
+  }
+
+  #footer{
+    position:fixed;
+    width: 100%;
+    background-color: #333333;
+    bottom: 0px;
+    left: 0px;
+    color:white;
+    text-align: right;
+    display: none;
+  }
+  
+  #inner-footer{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-self: center;
+  }
+  
+  #footer-text{
+    font-family: Raleway;
+    width: 450px;
+    text-align: left;
+    color: #E0E0E0;
+    align-self: center;
+  }
+  
+  #footer-button{
+    font-family: Lato;
+    font-weight: 700;
+    color:white;
+    background-color: black;
+    padding: 15px;
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  #main-home {
+    width: 50%; /* You can adjust this value based on your design preferences */
+    margin: 0 auto;
+  }
+  
+  #footer-close-button{
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 32px;
+    margin-top: 5px;
+    margin-right: 0.5%;
+  }
+  
+  #footer-close-button:hover{
+    background-color: white;
+    color: black;
+  }
+  
+  .navbar-custom{
+    background-color: powderblue;
+    font-family: 'Space Mono', monospace;
+  }
+  
+  .blue-container{
+    background-color: powderblue;
+    height: 430px;
+    width: 100%;
+    font-family: 'Space Mono', monospace;
+  }
+  
+  .float-container{
+    padding: 20px;
+    font-family: 'Space Mono', monospace;
+  }
+  
+  #special-container{
+    max-width:50px;
+    height:auto;
+  }
+  
+  .big{
+    font-size: 200;
+    text-align: center;
+  }
+  
+  .medium{
+    font-size: 45;
+    text-align: center;
+  }
+  
+  #main-home {
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid #ccc; /* Add a border with a color of your choice */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+  
+  .maininput {
+    padding: 20px;
+  }
+  
+  .game_class{
+    text-align: left;
+  }
+  
+  .active{
+    font-weight: bold;
+  }
+  
+  .about-content{
+    width: 50%;
+    float: left;
+    padding: 20px;
+  }
+  
+  #timer{
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  #time-left{
+    font-weight: bold;
+  }
+  
+  .dark-mode-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align to the right */
+    padding-right: 20px; /* Optional: Add some padding for spacing */
+  }
+  
+  /* Style for the slider */
+  .slider{
+    /* Your slider styles */
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+  }
+  
+  #darkModeToggle{
+    position: absolute;
+    top: 20px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  #darkModeToggle + .slider{
+    cursor: pointer;
+  }
+  
+  #darkModeToggle:checked + .slider{
+    background-color: #2196F3; /* Adjust color for checked state */
+  }
+  
+  /* Styling the slider's circle (thumb) */
+  .slider:after{
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  /* Move the circle (thumb) to the right when checkbox is checked */
+  #darkModeToggle:checked + .slider:after{
+    transform: translateX(20px);
+  }
+  
+  #main-home{
+    margin-bottom: 150px;
+  }
+  
+  #main-about{
+    margin-bottom: 1000px;
+  }
+  
+  #main-stats{
+    margin-bottom: 200px;
+  }
+
+  
+
+  ::selection{
+    color: #fff;
+    background: #17A2B8;
+  }
+  .wrapper{
+    width: 770px;
+    padding: 35px;
+    background: #fff;
+    border-radius: 10px;
+  }
+  .wrapper .input-field{
+    opacity: 0;
+    z-index: -999;
+    position: absolute;
+  }
+  .wrapper .content-box{
+    padding: 13px 20px 0;
+    border-radius: 10px;
+    border: 1px solid #bfbfbf;
+  }
+  .content-box .typing-text{
+    overflow: hidden;
+    max-height: 256px;
+  }
+  .typing-text::-webkit-scrollbar{
+    width: 0;
+  }
+  .typing-text p{
+    font-size: 21px;
+    text-align: justify;
+    letter-spacing: 1px;
+    word-break: break-all;
+  }
+  .typing-text p span{
+    position: relative;
+  }
+  .typing-text p span.correct{
+    color: #56964f;
+  }
+  .typing-text p span.incorrect{
+    color: #cb3439;
+    outline: 1px solid #fff;
+    background: #ffc0cb;
+    border-radius: 4px;
+  }
+  .typing-text p span.active{
+    color: #17A2B8;
+  }
+  .typing-text p span.active::before{
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    border-radius: 5px;
+    background: #17A2B8;
+    animation: blink 1s ease-in-out infinite;
+  }
+  @keyframes blink{
+    50%{ 
+      opacity: 1; 
+    }
+  }
+  .content-box .content{
+    margin-top: 17px;
+    display: flex;
+    padding: 12px 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #bfbfbf;
+  }
+  .content button{
+    outline: none;
+    border: none;
+    width: 105px;
+    color: #000000;
+    padding: 8px 0;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #ADD8E6;
+    transition: transform 0.3s ease;
+  }
+  .content button:active{
+    transform: scale(0.97);
+  }
+  .content .result-details{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: calc(100% - 140px);
+    justify-content: space-between;
+  }
+  .result-details li{
+    display: flex;
+    height: 20px;
+    list-style: none;
+    position: relative;
+    align-items: center;
+  }
+  .result-details li:not(:first-child){
+    padding-left: 22px;
+    border-left: 1px solid #bfbfbf;
+  }
+  .result-details li p{
+    font-size: 19px;
+  }
+  .result-details li span{
+    display: block;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  li span b{
+    font-weight: 500;
+  }
+  li:not(:first-child) span{
+    font-weight: 500;
+  }
+  @media (max-width: 745px) {
+    .wrapper{
+      padding: 20px;
+    }
+    .content-box .content{
+      padding: 20px 0;
+    }
+    .content-box .typing-text{
+      max-height: 100%;
+    }
+    .typing-text p{
+      font-size: 19px;
+      text-align: left;
+    }
+    .content button{
+      width: 100%;
+      font-size: 15px;
+      padding: 10px 0;
+      margin-top: 20px;
+    }
+    .content .result-details{
+      width: 100%;
+    }
+    .result-details li:not(:first-child){
+      border-left: 0;
+      padding: 0;
+    }
+    .result-details li p, 
+    .result-details li span{
+      font-size: 17px;
+    }
+  }
+  @media (max-width: 518px) {
+    .wrapper .content-box{
+      padding: 10px 15px 0;
+    }
+    .typing-text p{
+      font-size: 18px;
+    }
+    .result-details li{
+      margin-bottom: 10px;
+    }
+    .content button{
+      margin-top: 10px;
+    }
+  }
+
+  
+  
+  
+  
+  
+  

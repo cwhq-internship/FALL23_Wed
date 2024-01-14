@@ -35,6 +35,10 @@ def about():
 def game(wordNumber, gameTime, difficulty, togglePassing):
     return render_template('game.html', wordNumber=wordNumber, gameTime=gameTime, difficulty=difficulty, togglePassing=togglePassing)
 
+@app.route('/quotes')
+def quotes():
+    return render_template('quotes.html')
+
 
 
 

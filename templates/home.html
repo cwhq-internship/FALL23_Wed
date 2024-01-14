@@ -72,6 +72,7 @@
             
             <input type="submit" id="gameSubmitButton" class="be" onclick="inputFormValues()"><br>
         </form>
+
         <!--idea for current typing system:
         get a word from a random list. that's setWord.
         every time the user types a letter, it fills in the word they're typing (updates wordTyped variable)
@@ -82,13 +83,18 @@
         -->
     </div>
 </div>
+
+<button onclick = qclick()>QUOTES</button>
 {% endblock %}
 
 {% block scripts %}
 <!-- Delete the scripts block if not needed -->
     <script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
     <script>
-
+      
+    function qclick(){
+      window.location.href="{{url_for('quotes')}}";
+    }
     
 
     function inputFormValues(){

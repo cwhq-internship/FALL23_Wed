@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+{% set active_page = 'quotes' %}
+{% block styles %}
+
+    <link href='{{url_for("static", filename="stylesheets/quotes.css")}}' rel='stylesheet'/>
+ 
+{% endblock %}
+
+{% block content %}
+
+<body>
+
+    <nav class="navbar navbar-custom navbar-expand-lg">
+
+        <div class="dark-mode-toggle">
+          <input type="checkbox" id="darkModeToggle" onchange="dModeToggle()" style="display: none;">
+          <label for="darkModeToggle" class="slider open-sidebar"></label>
+          <span id="darkModeText" class="text"> Dark Mode</span>
+        </div>
+
+        <a class="navbar-brand" href="#">
+          <img src="{{url_for('static', filename='images/typewriter.png')}}" alt="Your Logo" class="navimg">
+          <span class="logo-text">Wizard Type</span>
+        </a>
+
+        <button class="navbtnstyle"type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list hamburger"></i>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text {{'active' if active_page == 'home' }}" href="{{url_for('home')}}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text {{'active' if active_page == 'about' }}" href="{{url_for('about')}}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text {{'active' if active_page == 'stats' }}" href="{{url_for('stats')}}">Statistics</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="body">
+    <div class="wrapper">
+      <input type="text" class="input-field">
+      <div class="content-box">
+        <div class="typing-text">
+          <p></p>
+        </div>
+        <div class="content">
+          <ul class="result-details">
+            <li class="time">
+              <p>Time Left:</p>
+              <span><b>60</b>s</span>
+            </li>
+            <li class="mistake">
+              <p>Mistakes:</p>
+              <span>0</span>
+            </li>
+            <li class="wpm">
+              <p>WPM:</p>
+              <span>0</span>
+            </li>
+          </ul>
+          <button>Try Again</button>
+        </div>
+      </div>
+    </div>
+</div>
+    <!-- <script src="javascript/paragraphs.js"></script>
+    <script src="javasript/quotes.js"></script> -->
+</body>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='javascript/quotes.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/paragraphs.js') }}"></script>
+
+
+
+{% endblock %}
