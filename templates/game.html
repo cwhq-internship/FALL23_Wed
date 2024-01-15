@@ -15,7 +15,7 @@
         <br>
         <p id="wordsToGo">Words left: {{wordNumber}}</p>
         <div id="skipEnabled">
-            <button id="skipButton">Skip word</button>
+            <button class="gamebtnone" id="skipButton">Pass</button>
             <p>(You can also press the spacebar to skip)</p>
             <p id="skipCounter">Words skipped: 0</p>
         </div>
@@ -26,12 +26,14 @@
     <p>Congrats! You finished!</p>
     <p id="endingType">b</p>
     <p id="WPMCounter"></p>
-    <button onclick="submitScores()">Submit score (console logs but no actual submitting)</button>
+    <button class="gamebtnone" onclick="submitScores()">Submit</button> <!-- (console logs but no actual submitting)-->
 </div>
 
 <br>
 <a href="{{url_for('home')}}">
-    <button class="be">Home</button>
+    <button class="be homebtn">Home
+        <i class="bi bi-house-fill"></i>
+    </button>
 </a>
 {% endblock %}
 
