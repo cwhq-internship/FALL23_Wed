@@ -31,18 +31,19 @@
   bottom: 40px;
   border-radius: 25%;
   background-color:#ADD8E6;
-  padding-left: 2%;
-  padding-right: 2%;
-  padding-top: 0.6%;
-  padding-bottom: 0.6%;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 #homenavbtn {
   border-radius: 25%;
   background-color:#ADD8E6;
   border: 2px solid black;
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
 }
 
 .hamburger {
@@ -479,3 +480,6 @@ li:not(:first-child) span{
   color: #6C7B8B;
 }
 
+.dmodetext {
+  width: 120px;
+}
