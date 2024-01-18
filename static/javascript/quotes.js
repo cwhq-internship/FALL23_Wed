@@ -9,7 +9,6 @@ inpField = document.querySelector(".wrapper .input-field"),
 tryAgainBtn = document.querySelector(".content button"),
 mistakeTag = document.querySelector(".mistake span"),
 wpmTag = document.querySelector(".wpm span"),
-cpmTag = document.querySelector(".cpm span"),
 timeTag = document.querySelector(".time span b");
 
 
@@ -63,7 +62,6 @@ function initTyping() {
 
         wpmTag.innerText = wpm;
         mistakeTag.innerText = mistakes;
-        cpmTag.innerText = charIndex - mistakes;
     } else {
         clearInterval(timer);
         inpField.value = "";
@@ -90,7 +88,6 @@ function resetGame() {
     timeTag.innerText = timeLeft;
     wpmTag.innerText = 0;
     mistakeTag.innerText = 0;
-    cpmTag.innerText = 0;
 }
 
 loadParagraph();
