@@ -514,6 +514,11 @@ li:not(:first-child) span{
   color: white;
 }
 
+.home-button-container {
+  text-align: center;
+  margin-top: 10px; /* Adjust as needed */
+}
+
 .homebtn:hover {
   background-color: white;
   color: #6C7B8B;
