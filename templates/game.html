@@ -100,6 +100,7 @@
 
 {% block content %}
 
+
 <nav class="navbar navbar-custom navbar-expand-lg">
 
     <div class="dark-mode-toggle">
@@ -114,6 +115,10 @@
     </a> -->
 
     <button class="navbtnstyle"type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span id="darkModeText" class="text dmodetext"> Light Mode</span>
+    </div>
+
+    <button class="navbar-toggler" id="homenavbtn" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <i class="bi bi-list hamburger"></i>
     </button>
 
@@ -154,12 +159,7 @@
     <button class="gamebtnone">Submit</button> (console logs but no actual submitting) <!--onclick="submitScores()"-->
 </div>
 
-<br>
-<a href="{{url_for('home')}}">
-    <button class="be homebtn">Home
-        <i class="bi bi-house-fill"></i>
-    </button>
-</a>
+
 {% endblock %}
 
 {% block scripts %}
