@@ -113,8 +113,26 @@ body{
 }
 
 #main-home {
-  width: 50%; /* You can adjust this value based on your design preferences */
+  width: 50%;
   margin: 0 auto;
+  text-align: center;
+}
+
+.maininput {
+  border: 2px solid #ccc; /* Adjust border width and color as needed */
+  padding: 20px;
+  display: inline-block;
+}
+
+#maingame {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center; /* Optional, to center inline content within the div */
+}
+#center-container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 #footer-close-button{
@@ -168,16 +186,7 @@ body{
   text-align: center;
 }
 
-#main-home {
-  width: 50%;
-  margin: 0 auto;
-  border: 1px solid #ccc; /* Add a border with a color of your choice */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
 
-.maininput {
-  padding: 20px;
-}
 
 .game_class{
   text-align: left;

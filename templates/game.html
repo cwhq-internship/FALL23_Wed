@@ -2,39 +2,69 @@
 {% set active_page = 'game' %}
 {% block styles %}
 
-    <link href='{{url_for("static", filename="stylesheets/layout.css")}}' rel='stylesheet'/>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='{{url_for("static", filename="stylesheets/layout.css")}}' rel='stylesheet'/>
 {% endblock %}
 
 {% block content %}
+<nav class="navbar navbar-custom navbar-expand-lg">
+
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="darkModeToggle" onchange="dModeToggle()" style="display: none;">
+      <label for="darkModeToggle" class="slider open-sidebar"></label>
+      <span id="darkModeText" class="text dmodetext"> Dark Mode</span>
+    </div>
+
+    <button class="navbar-toggler" id="homenavbtn" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-list hamburger"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text {{'active' if active_page == 'home' }}" href="{{url_for('home')}}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text {{'active' if active_page == 'about' }}" href="{{url_for('about')}}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text {{'active' if active_page == 'stats' }}" href="{{url_for('stats')}}">Statistics</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div id="center-container">
 <div id="maingame"> <!--starts shown and is hidden once game is completed-->
     <div>
-        <h2>Current word:</h2>
-        <h1 id="currentWord">test</h1>
+        <h2 class="text">Current word:</h2>
+        <h1 class="text" id="currentWord">test</h1>
         <input type="text" id="maininputbox">
         <br>
-        <p id="wordsToGo">Words left: {{wordNumber}}</p>
+        <p class="text" id="wordsToGo">Words left: {{wordNumber}}</p>
         <div id="skipEnabled">
             <button class="gamebtnone" id="skipButton">Pass</button>
-            <p>(You can also press the spacebar to skip)</p>
-            <p id="skipCounter">Words skipped: 0</p>
+            <p class="text">(You can also press the spacebar to skip)</p>
+            <p class="text" id="skipCounter">Words skipped: 0</p>
         </div>
-        <p id="gameTimer"></p>
+        <p class="text" id="gameTimer"></p>
     </div>
 </div>
 <div id="aftergame"><!--starts hidden and is shown once game is completed-->
-    <p>Congrats! You finished!</p>
-    <p id="endingType">b</p>
-    <p id="WPMCounter"></p>
-    <button class="gamebtnone" onclick="submitScores()">Submit</button> <!-- (console logs but no actual submitting)-->
+    <p class="text">Congrats! You finished!</p>
+    <p class="text" id="endingType">b</p>
+    <p class="text" id="WPMCounter"></p>
+    <button class="gamebtnone text" onclick="submitScores()">Submit</button> <!-- (console logs but no actual submitting)-->
 </div>
 
 <br>
-<a href="{{url_for('home')}}">
-    <button class="be homebtn">Home
+<a href="{{url_for('home')}}" class="home-button-container">
+    <button class="be homebtn" id="homebtn">Home
         <i class="bi bi-house-fill"></i>
     </button>
 </a>
+</div>
 {% endblock %}
 
 {% block scripts %}
