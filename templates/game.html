@@ -127,44 +127,7 @@
     </div>
   </nav>
 
-<div id="center-container">
 
-
-<nav class="navbar navbar-custom navbar-expand-lg">
-
-    <div class="dark-mode-toggle">
-      <input type="checkbox" id="darkModeToggle" onchange="dModeToggle()" style="display: none;">
-      <label for="darkModeToggle" class="slider open-sidebar"></label>
-      <span id="darkModeText" class="text dmodetext"> Dark Mode</span>
-    </div>
-
-    <!-- <a class="navbar-brand" href="#">
-      <img src="{{url_for('static', filename='images/typewriter.png')}}" alt="Your Logo" class="navimg">
-      <span class="logo-text">Wizard Type</span>
-    </a> -->
-
-    <button class="navbtnstyle"type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span id="darkModeText" class="text dmodetext"> Light Mode</span>
-    </div>
-
-    <button class="navbar-toggler" id="homenavbtn" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="bi bi-list hamburger"></i>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link text {{'active' if active_page == 'home' }}" href="{{url_for('home')}}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text {{'active' if active_page == 'about' }}" href="{{url_for('about')}}">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text {{'active' if active_page == 'stats' }}" href="{{url_for('stats')}}">Statistics</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
 <div id="maingame"> <!--starts shown and is hidden once game is completed-->
     <div>
         <h2 class="text">Current Word:</h2>
@@ -194,7 +157,7 @@
         <i class="bi bi-house-fill"></i>
     </button>
 </a>
-</div>
+
 {% endblock %}
 
 {% block scripts %}
