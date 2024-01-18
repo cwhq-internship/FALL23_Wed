@@ -30,7 +30,7 @@
   display: none;
   bottom: 40px;
   border-radius: 25%;
-  background-color:#ADD8E6;
+  background-color:powderblue;/*#ADD8E6;*/
   padding-left: 11px;
   padding-right: 11px;
   padding-top: 1px;
@@ -39,13 +39,15 @@
 
 #homenavbtn {
   border-radius: 25%;
-  background-color:#ADD8E6;
+  background-color:powderblue;
   border: 2px solid black;
   padding-top: 6px;
   padding-bottom: 6px;
-
 }
 
+#aftergame{
+  font-family: 'Space Mono', monospace;
+}
 .hamburger {
   font-size: 20px;
 }
@@ -113,8 +115,29 @@ body{
 }
 
 #main-home {
-  width: 50%; /* You can adjust this value based on your design preferences */
+  width: 40%; /* You can adjust this value based on your design preferences */
   margin: 0 auto;
+  border: 1px solid #ccc; /* Add a border with a color of your choice */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  font-family: 'Space Mono', monospace;
+  display: flex;
+  justify-content: space-between;
+}
+
+#q-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.quotes {
+  width: 45%; /* Set a width for the quotes div */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+  text-align: center;
 }
 
 #footer-close-button{
@@ -168,15 +191,11 @@ body{
   text-align: center;
 }
 
-#main-home {
-  width: 50%;
-  margin: 0 auto;
-  border: 1px solid #ccc; /* Add a border with a color of your choice */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
 
 .maininput {
   padding: 20px;
+  width:45%;
+  box-sizing: border-box;
 }
 
 .game_class{
