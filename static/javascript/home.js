@@ -193,7 +193,10 @@ console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTi
 + "\nTotal words typed: " + wordsTypedNumber + "\nTotal words skipped: " + wordsSkippedNumber
 + "\nPercentage of words typed: " + typedRatio + "%\nPercentage of words skipped: " + skippedRatio + "%");
 
-  //send to database
+  //send to databas
+
+
+
 }
 
 function skipWord(allowPassing){

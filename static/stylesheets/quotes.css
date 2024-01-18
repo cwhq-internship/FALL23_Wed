@@ -40,7 +40,7 @@
     display: none;
     bottom: 40px;
     border-radius: 25%;
-    background-color:#ADD8E6;
+    background-color:powderblue;
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 0.6%;
@@ -49,7 +49,7 @@
   
   #homenavbtn {
     border-radius: 25%;
-    background-color:#ADD8E6;
+    background-color:powderblue;
     border: 2px solid black;
     padding-top: 1.5%;
     padding-bottom: 1.5%;
@@ -152,6 +152,10 @@
     font-family: 'Space Mono', monospace;
   }
   
+  #navbarNav{
+    background-color: powderblue;
+  }
+
   .blue-container{
     background-color: powderblue;
     height: 430px;
