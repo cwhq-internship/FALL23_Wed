@@ -517,6 +517,7 @@ li:not(:first-child) span{
 .home-button-container {
   text-align: center;
   margin-top: 10px; /* Adjust as needed */
+  margin-left: 10px;
 }
 
 .homebtn:hover {

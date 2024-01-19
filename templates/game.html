@@ -28,7 +28,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-top: 100px;
+            margin-top: 50px;
             
         }
 
@@ -127,7 +127,11 @@
     </div>
   </nav>
 
-
+  <a href="{{url_for('home')}}" class="home-button-container">
+    <button class="be homebtn" id="homebtn">Home
+        <i class="bi bi-house-fill"></i>
+    </button>
+</a>
 <div id="maingame"> <!--starts shown and is hidden once game is completed-->
     <div>
         <h2 class="text">Current Word:</h2>
@@ -152,11 +156,7 @@
 </div>
 
 <br>
-<a href="{{url_for('home')}}" class="home-button-container">
-    <button class="be homebtn" id="homebtn">Home
-        <i class="bi bi-house-fill"></i>
-    </button>
-</a>
+
 
 {% endblock %}
 
