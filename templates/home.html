@@ -72,26 +72,23 @@
             
             <input type="submit" id="gameSubmitButton" class="be" onclick="inputFormValues()"><br>
         </form>
-
-        <!--idea for current typing system:
-        get a word from a random list. that's setWord.
-        every time the user types a letter, it fills in the word they're typing (updates wordTyped variable)
-        if wordTyped==setWord, then complete and move to next word (run like nextWord() or something). This is our new setWord.
-        Repeat until number of words complete is the number we want.
-        or something like that
-            --Daniel B.
-        -->
-    </div>
-
+        
+</div>
+  <div class="extras">
     <div class="quotes">
-      <h1>Want to try longer sentences? Click here!</h1>
-      <button id="q-button" onclick = qclick()>QUOTES</button>
+      <div class="subquotes">
+        <h1>Want to try longer sentences?</h1>
+        <button id="q-button" onclick = qclick()>PARAGRAPH MODE</button>
+      </div>
     </div>
 
     <div class="infinity">
-      <h1>Infinity mode</h1>
-      <button id="q-button" onclick = iclick()>INFINITY</button>
+      <div class="subinfinity">
+        <h1>Want a never-ending challenge?</h1>
+        <button id="q-button" onclick = iclick()>INFINITY MODE</button>
+      </div>
     </div>
+</div>
     
 </div>
 

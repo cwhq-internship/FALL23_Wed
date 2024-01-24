@@ -119,14 +119,19 @@ body{
 }
 
 #main-home {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+}
+.extras{
+  display: flex;
+  width: 100%;
 }
 
 .maininput {
   border: 2px solid #ccc; /* Adjust border width and color as needed */
-  padding: 20px;
+  padding: 50px;
   display: inline-block;
 }
 
@@ -158,9 +163,35 @@ body{
 }
 
 .quotes {
-  width: 100%; /* Set a width for the quotes div */
+  width: 50%; /* Set a width for the quotes div */
   box-sizing: border-box; /* Include padding and border in the width calculation */
   text-align: center;
+  margin: 15px;
+  border: gray dashed 1px;
+  height: 55%;
+  align-self: center;
+  display: flex;
+}
+
+.subquotes{
+  align-self: center;
+  margin: 5%;
+}
+
+.infinity{
+  width: 50%; /* Set a width for the quotes div */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+  text-align: center;
+  margin: 15px;
+  border: gray dashed 1px;
+  height: 55%;
+  align-self: center;
+  display: flex; 
+}
+
+.subinfinity{
+  align-self: center;
+  margin: 5%;
 }
 
 #footer-close-button{
