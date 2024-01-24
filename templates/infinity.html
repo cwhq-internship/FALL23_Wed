@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+{% set active_page = 'quotes' %}
+{% block styles %}
+
+    <link href='{{url_for("static", filename="stylesheets/quotes.css")}}' rel='stylesheet'/>
+ 
+{% endblock %}
+
+{% block content %}
+
+<body>
+
+    <nav class="navbar navbar-custom navbar-expand-lg">
+
+        <div class="dark-mode-toggle">
+          <input type="checkbox" id="darkModeToggle" onchange="dModeToggle()" style="display: none;">
+          <label for="darkModeToggle" class="slider open-sidebar"></label>
+          <span id="darkModeText" class="text"> Dark Mode</span>
+        </div>
+
+        <a class="navbar-brand" href="#">
+          <img src="{{url_for('static', filename='images/typewriter.png')}}" alt="Your Logo" class="navimg">
+          <span class="logo-text">Wizard Type</span>
+        </a>
+
+        <button class="navbtnstyle"type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list hamburger"></i>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text {{'active' if active_page == 'home' }}" href="{{url_for('home')}}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text {{'active' if active_page == 'about' }}" href="{{url_for('about')}}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text {{'active' if active_page == 'stats' }}" href="{{url_for('stats')}}">Statistics</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container text-center" style="font-family: 'Space Mono', monospace; margin-top:20px;">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <p class="lead">Type The Given Word Within
+            <span class="text-success" id="seconds"></span> Seconds</p>
+            <h2 class="display-2 mb-5" id="current-word">hello</h2>
+            <input type="text" class="form-control from-control-lg" placeholder="Start typing..." id="word-input" autofocus>
+            <h4 class="mt-3" id="message"></h4>
+            
+            <!-- time & score columns -->
+            <div class="row mt-5">
+              <div class="col-md-6">
+                <h3>Time Left: <span id="time">0</span></h3>
+              </div>
+              <div class="col-md-6">
+                <h3>Score</h3>
+                <span id="score">0</span>
+              </div>
+            </div>
+            
+            <div class="row mt-5">
+              <div class="col-md-12">
+                <div class="card card-body text-black">
+                  <h5>Instructions</h5>
+                  <p>You'll have 5 seconds to type each word, and every correct word will increase your time. Try to score as high as possible!</p>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+          
+        </div>
+      </div>
+
+
+</body>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='javascript/infinity.js') }}"></script>
+
+
+
+{% endblock %}

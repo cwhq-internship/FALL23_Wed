@@ -39,6 +39,10 @@ def game(wordNumber, gameTime, difficulty, togglePassing):
 def quotes():
     return render_template('quotes.html')
 
+@app.route('/infinity')
+def infinity():
+    return render_template('infinity.html')
+
 
 
 

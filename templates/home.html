@@ -87,6 +87,11 @@
       <h1>Want to try longer sentences? Click here!</h1>
       <button id="q-button" onclick = qclick()>QUOTES</button>
     </div>
+
+    <div class="infinity">
+      <h1>Infinity mode</h1>
+      <button id="q-button" onclick = iclick()>INFINITY</button>
+    </div>
     
 </div>
 
@@ -100,6 +105,10 @@
       
     function qclick(){
       window.location.href="{{url_for('quotes')}}";
+    }
+
+    function iclick(){
+      window.location.href="{{url_for('infinity')}}";
     }
     
 
