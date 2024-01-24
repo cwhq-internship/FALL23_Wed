@@ -196,7 +196,7 @@ console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTi
 + "\nGame difficulty: " + gameDifficulty);
 
   //send to database
-
+goHome();
 
 
 }
@@ -247,7 +247,9 @@ function selectRandomWord(difficulty){
       wordsArray = hardWordsList;
     } else{
       console.log("Incorrect variable input, error");
-      window.location.href = "../../../../";
+      alert("Incorrect variable input, error");
+      goHome();
+      return false
     }
     if (wordsArray.length == 0){
       endGame(3);

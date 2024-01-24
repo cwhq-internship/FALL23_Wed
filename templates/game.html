@@ -140,7 +140,7 @@
         <br>
         <p class="text" id="wordsToGo">Words left: {{wordNumber}}</p>
         <div id="skipEnabled">
-            <button class="gamebtnone" id="skipButton">Pass</button>
+            <button class="gamebtnone" id="skipButton">Skip word</button>
             <p class="text">(You can also press the spacebar to skip)</p>
             <p class="text" id="skipCounter">Words skipped: 0</p>
         </div>
@@ -186,6 +186,9 @@
         document.getElementById("aftergame").style.display = "none";
     }
 
+function goHome(){
+    window.location.href = "{{url_for('home')}}";
+}
 </script>
 
 {% endblock %}
