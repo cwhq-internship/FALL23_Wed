@@ -120,22 +120,18 @@
 
 #main-home {
   font-family: 'Space Mono', monospace;
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
   text-align: center;
   display: flex;
   margin-top: 20px;
 }
-.extras{
-  font-family: 'Space Mono', monospace;
-  display: flex;
-  width: 50%;
-}
 
 .maininput {
   border: 2px solid #ccc; /* Adjust border width and color as needed */
-  padding: 50px;
+  padding: 20px;
   display: inline-block;
+  width: 50%;
 }
 
 #maingame {
@@ -183,7 +179,7 @@
 }
 
 .infinity{
-  width: 100%; /* Set a width for the quotes div */
+  width: 50%; /* Set a width for the quotes div */
   box-sizing: border-box; /* Include padding and border in the width calculation */
   text-align: center;
   margin: 15px;
@@ -259,7 +255,7 @@
 
 .game_class{
   text-align: left;
-  margin-left: 25%;
+  margin-left: 20%;
 }
 
 
