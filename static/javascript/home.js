@@ -189,17 +189,16 @@ function submitScores(){
   skippedRatio = roundNumber(skippedRatio, 2);
   var gameDifficulty = difficulty;
   
-console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTimer ran out: " + failedGame
-+ "\nWords typed: "+ wordsTypedArray + "\nWords skipped: " + wordsSkippedArray
-+ "\nTotal words typed: " + wordsTypedNumber + "\nTotal words skipped: " + wordsSkippedNumber
-+ "\nPercentage of words typed: " + typedRatio + "%\nPercentage of words skipped: " + skippedRatio + "%"
-+ "\nGame difficulty: " + gameDifficulty);
+
+  console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTimer ran out: " + failedGame
+  + "\nWords typed: "+ wordsTypedArray + "\nWords skipped: " + wordsSkippedArray
+  + "\nTotal words typed: " + wordsTypedNumber + "\nTotal words skipped: " + wordsSkippedNumber
+  + "\nPercentage of words typed: " + typedRatio + "%\nPercentage of words skipped: " + skippedRatio + "%"
+  + "\nGame difficulty: " + gameDifficulty);
 
   //send to database
-
-
   alert("Score added!");
-goHome();
+  goHome();
 
 
 }
