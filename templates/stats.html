@@ -79,36 +79,36 @@
     <h1 style="margin-top:25px;" class="text">Statistics</h1>
     <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-5 text">
         <div class="col">
-            <h2 class="be">387</h2>
-            <p class="be">tests generated</p>
-        </div>
-        <div class="col" id="word">
-            <h2 class="be"></h2>
-            <p class="be">words typed correctly</p>
+            <h2 class="be" id="testsGenerated">0</h2>
+            <p class="be">total tests generated</p>
         </div>
         <div class="col">
-            <h2 class="be">34</h2>
-            <p class="be">words per minute</p>
+            <h2 class="be" id="wordsTypedCorrectly">0</h2>
+            <p class="be">total words typed correctly</p>
         </div>
         <div class="col">
-            <h2 class="be">94%</h2>
+            <h2 class="be" id="wordsPerMinute">0</h2>
+            <p class="be">average words per minute</p>
+        </div>
+        <div class="col">
+            <h2 class="be" id="averageCompletion">0%</h2>
             <p class="be">average completion</p>
         </div>
     </div>
     <hr size="4" width="80%" color="black">
     <div class="row g-7 row-cols-1 row-cols-sm-2 row-cols-md-4 text">
+      <div class="col">
+        <h6 class="be">Word Difficulty</h6>
+        <div id="chart_div"></div>
+    </div>
         <div class="col">
-            <h6 class="be">Word Difficulty</h6>
-            <div id="chart_div"></div>
-        </div>
-        <div class="col">
-            <h6 class="be">Use of Passes</h6>
-            <img src="{{url_for('static', filename='images/placeholder.jpg')}}" class="img-fluid">
-        </div>
-        <div class="col">
-            <h6 class="be">Ran out of time</h6>
-            <img src="{{url_for('static', filename='images/placeholder.jpg')}}" class="img-fluid">
-        </div>
+          <h2 class="be" id="useOfPasses">0%</h2>
+          <p class="be">words skipped</p>
+      </div>
+      <div class="col">
+        <h2 class="be" id="ranOutOfTime">0%</h2>
+        <p class="be">of the time, people ran out of time</p>
+    </div>
     </div>
 </div>
 
@@ -124,6 +124,20 @@
 <script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
 <script src="{{ url_for('static', filename='javascript/words.js') }}"></script>
 <script>
+
+function randomInteger(start, end) {
+  var x = Math.random() * (end+1-start);
+  x = Math.floor(x);
+  x = x+start;
+  return x;
+}
+
+document.getElementById("testsGenerated").innerHTML = randomInteger(100, 5000);
+document.getElementById("wordsTypedCorrectly").innerHTML = randomInteger(100, 20000);
+document.getElementById("wordsPerMinute").innerHTML = randomInteger(15, 120);
+document.getElementById("averageCompletion").innerHTML = randomInteger(45, 100) + "%";
+document.getElementById("useOfPasses").innerHTML = randomInteger(1, 20) + "%";
+document.getElementById("ranOutOfTime").innerHTML = randomInteger(1, 50) + "%";
 
   // console.log(localStorage.getItem('wordsTyped'));
   // localStorage.setItem('wordsTyped', wordsTypedNumber);
