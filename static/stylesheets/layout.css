@@ -119,12 +119,14 @@ body{
 }
 
 #main-home {
+  font-family: 'Space Mono', monospace;
   width: 100%;
   margin: 0 auto;
   text-align: center;
   display: flex;
 }
 .extras{
+  font-family: 'Space Mono', monospace;
   display: flex;
   width: 100%;
 }
@@ -153,8 +155,9 @@ body{
 }
 
 #q-button {
-  background-color: #28a745;
-  color: #fff;
+  background-color: powderblue;
+  margin-top: 15px;
+  color: black;
   padding: 10px;
   border: none;
   border-radius: 5px;
