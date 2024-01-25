@@ -127,11 +127,11 @@
     </div>
   </nav>
 
-  <a href="{{url_for('home')}}" class="home-button-container">
+  <!-- <a href="{{url_for('home')}}" class="home-button-container">
     <button class="be homebtn" id="homebtn">Home
         <i class="bi bi-house-fill"></i>
     </button>
-</a>
+</a> -->
 <div id="maingame" style="background-color:powderblue;"> <!--starts shown and is hidden once game is completed-->
     <div style="background-color:powderblue;">
         <h2 class="text">Current Word:</h2>
@@ -148,8 +148,8 @@
     </div>
 </div>
 
-<div id="aftergame"><!--starts hidden and is shown once game is completed-->
-    <p class="text">Congrats! You finished!</p>
+<div id="aftergame" style="background-color:powderblue;"><!--starts hidden and is shown once game is completed-->
+    <h1 class="text">Congrats! You finished!</h1>
     <p class="text" id="endingType">b</p>
     <p class="text" id="WPMCounter"></p>
     <button class="gamebtnone text" onclick="submitScores()">Submit</button> <!-- (console logs but no actual submitting)-->
