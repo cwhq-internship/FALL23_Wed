@@ -141,7 +141,7 @@ function endGame(value){
   document.getElementById("maingame").style.display = "none";
   document.getElementById("aftergame").style.display = "block";
   var wordsPerMinute = calculateWPM();
-  document.getElementById("WPMCounter").innerHTML = wordsPerMinute[0] + " wpm (words per minute)";
+  document.getElementById("WPMCounter").innerHTML = wordsPerMinute[0] + " WPM (Words Per Minute)";
   if (value == 1){
     document.getElementById("endingType").innerHTML = "You typed the required number of words!";
   } else if (value == 2){
