@@ -128,7 +128,7 @@
 .extras{
   font-family: 'Space Mono', monospace;
   display: flex;
-  width: 100%;
+  width: 50%;
 }
 
 .maininput {
@@ -182,7 +182,7 @@
 }
 
 .infinity{
-  width: 50%; /* Set a width for the quotes div */
+  width: 100%; /* Set a width for the quotes div */
   box-sizing: border-box; /* Include padding and border in the width calculation */
   text-align: center;
   margin: 15px;
@@ -525,7 +525,7 @@ li:not(:first-child) span{
 }
 
 .col-stats{
-  border: gray dashed 1px;
+  border: gray solid 1px;
   align-items: center;
 }
 
