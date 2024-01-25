@@ -521,6 +521,10 @@ li:not(:first-child) span{
   }
 }
 
+.col-stats{
+  border: gray dashed 1px;
+  align-items: center;
+}
 
 .gamebtnone {
   border-radius: 7.5%;
