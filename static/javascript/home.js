@@ -196,6 +196,9 @@ console.log("WPM: " + WPM + "\nTime spent on game: " + timeSpent + " seconds\nTi
 + "\nGame difficulty: " + gameDifficulty);
 
   //send to database
+
+
+  alert("Score added!");
 goHome();
 
 
