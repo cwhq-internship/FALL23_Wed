@@ -124,6 +124,7 @@
   margin: 0 auto;
   text-align: center;
   display: flex;
+  margin-top: 20px;
 }
 .extras{
   font-family: 'Space Mono', monospace;
